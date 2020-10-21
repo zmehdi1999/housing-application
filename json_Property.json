@@ -1,0 +1,46 @@
+[
+    {
+    "id": 1,
+    "sqrFeet": 600,
+    "wifi": false,
+    "petFriendly": false,
+    "pool": true,
+    "furnished": true,
+    "price": 450,
+    "beds": 1,
+    "baths": 1
+    },
+    {
+    "id": 1,
+    "sqrFeet": 600,
+    "wifi": false,
+    "petFriendly": false,
+    "pool": true,
+    "furnished": true,
+    "price": 450,
+    "beds": 1,
+    "baths": 1
+    },
+    {
+    "id": 2,
+    "sqrFeet": 700,
+    "wifi": true,
+    "petFriendly": true,
+    "pool": false,
+    "furnished": true,
+    "price": 800,
+    "beds": 2,
+    "baths": 3
+    },
+    {
+    "id": 3,
+    "sqrFeet": 550,
+    "wifi": true,
+    "petFriendly": true,
+    "pool": true,
+    "furnished": true,
+    "price": 640,
+    "beds": 2,
+    "baths": 2
+    }
+    ]
