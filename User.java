@@ -24,6 +24,33 @@ public class User {
 		this.owner = owner;
 		this.rating = rating; 
 	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public String password() {
+		return password;
+	}
+	public int phoneNum() {
+		return phoneNum;
+	}
+	
+	
+	
+	
+	public String setFirstName(String firstName){
+		this.firstName = firstName;
+	}
+	public String 
+	
 	public User createAccount(User user)
 	{
 		return user;
