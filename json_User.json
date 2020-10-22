@@ -1,8 +1,12 @@
 [
 	{
 		"id": 1,
+		"userName": "kb3",
+		"email": "abc123@gmail.com",
+		"password": "password",
 		"firstName": "Kiesha",
 		"lastName": "Michaels",
+		"registered": "false",
 		"owner": "false"
 	},
 	{
