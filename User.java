@@ -36,10 +36,10 @@ public class User {
 	public String getEmail() {
 		return email;
 	}
-	public String password() {
+	public String getPassword() {
 		return password;
 	}
-	public int phoneNum() {
+	public int getPhoneNum() {
 		return phoneNum;
 	}
 	
