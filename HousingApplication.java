@@ -1,4 +1,3 @@
-package housingapplication;
 
 import java.util.ArrayList; 
 
