@@ -24,6 +24,13 @@ public class User {
 		this.owner = owner;
 		this.rating = rating; 
 	}
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+/////////////////	Getters	    ////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+	
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -42,25 +49,54 @@ public class User {
 	public int getPhoneNum() {
 		return phoneNum;
 	}
+	public bool getRegistered() {
+		return registered;
+	}
+	public bool getTenant() {
+		return tenant;
+	}
+	public bool getOwner() {
+		return owner;
+	}
+	public int getRating() {
+		return rating;
+	}
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+/////////////////	Setters	    ////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 	
 	
-	
-	
-	public String setFirstName(String firstName){
+	public void setFirstName(String firstName){
 		this.firstName = firstName;
 	}
-	public String 
-	
-	public User createAccount(User user)
-	{
-		return user;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	
-	private String setPassword(String password)
-	{
-		return null;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	
-	
-
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public void setPhoneNum(int phoneNum) {
+		this.phoneNum = phoneNum;
+	}
+	public void setRegistered(bool registered){
+		this.registered = registered;
+	}
+	public void setTenant(bool tenant){
+		this.tenant = tenant;
+	}
+	public void setOwner(bool owner) {
+		this.owner = owner;
+	}
+	public void setRating(int rating) {
+		this.rating = rating; 
+	}
 }
