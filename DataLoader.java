@@ -8,15 +8,11 @@ import org.json.simple.parser.JSONParser;;
 public class DataLoader {
 	
 	public String getUsers(){
-		
-	}
-	
-	public String setUsers() {
-		
+	//get users returns an arrayList of Users	
 	}
 	
 	public String getListings() {
-		
+		//get listings returns an array list of Listings
 	}
 	
 	public String setListings(){
