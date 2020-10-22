@@ -2,16 +2,19 @@
     {
         "id": 1,
         "user": "Haley Jennings",
-        "review": "Great Location!"
+        "review": "Great Location!",
+        "date": "04222015"
     },
     {
         "id": 2,
         "user": "Blake Wright",
-        "review": "Slow Internet!"
+        "review": "Slow Internet!",
+        "date": "04112016"
     },
     {
         "id": 3,
         "user": "Michael Moore",
-        "review": "Very Little Amenities!"
+        "review": "Very Little Amenities!",
+        "date": "04232018"
     }
 ]
