@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "user": "Haley Jennings",
+        "review": "Great Location!"
+    },
+    {
+        "id": 2,
+        "user": "Blake Wright",
+        "review": "Slow Internet!"
+    },
+    {
+        "id": 3,
+        "user": "Michael Moore",
+        "review": "Very Little Amenities!"
+    }
+]
