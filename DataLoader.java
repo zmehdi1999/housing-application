@@ -7,11 +7,20 @@ import org.json.simple.parser.JSONParser;;
 
 public class DataLoader {
 	
-	public static ArrayList<Person> loadPeople() {
-		ArrayList<Person> people = new ArrayList<Person>();
-		
+	public static ArrayList<Users> loadUsers(){
 	
-		return null;
+		ArrayList<Users> users = new ArrayList<Users>();
+		
+		try { 
+			FileReader reader = new FileReader(PEOPLE_FILE_NAME);
 	}
-
+	
+	public static ArrayList<Listings> loadListings() {
+		ArrayList<Listings> listings = new ArrayList<Listings>();
+		
+		try {
+			FileReader reader = new FileReader(
+			
+			
+	}
 }

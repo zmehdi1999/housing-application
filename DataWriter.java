@@ -7,11 +7,16 @@ import org.json.simple.JSONObject;
 
 public class DataWriter {
 	public static void savePeople() {
-  }
+		return People;
+		
+ 	 }
   
-  public static JSONObject getPersonJSON(Person person) {
+  	public static JSONObject getTenantJSON(Person person) {
    
-    return personDetails;
-  }
+   	 return personDetails;
+  	}
+	
+	public static JSONObject getLandLordJSON(Landlord Landlord) {
+	}
 
 }
