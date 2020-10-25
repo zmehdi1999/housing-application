@@ -34,7 +34,7 @@ public class DataLoader {
 			}
 			return users;
 		}
-			catch(Exception e) {
+		catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -62,14 +62,12 @@ public class DataLoader {
 				int vistaWS = (int)json_Property.get(PROPERTY_VISTAWS);
 				int fpWS = (int)json_Property.get(PROPERTY_FPWS);
 				int uscWS = (int)json_Property.get(PROPERTY_USCWS);
+				
+				listings.add(new Property(location, vacancy, price, yearBuild, numBed, numBath, washerAndDryer, pool, parking, lawncare, vistaWS, fpWS, uscWS));
 			}
-			
-			listings.add(new Property(location, vacancy, price, yearBuild, numBed, numBath, washerAndDryer, pool, parking, lawncare, vistaWS, fpWS, uscWS));
+			return listings;
 		}
-		
-		return listings;
-		
-		}	catch(Exception e) {
+		catch(Exception e) {
 			e.printStackTrace();
 		}
 		return null;
