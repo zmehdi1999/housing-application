@@ -1,6 +1,4 @@
-
 public class Property {
-	
 	protected String location;
 	protected String Vacancy;
 	protected double Price;
@@ -127,5 +125,4 @@ public class Property {
 	public ArrayList<String> landlordReviews() {
 		
 	}
-	
 }
