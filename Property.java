@@ -1,5 +1,9 @@
 public class Property {
 	
+	public Property() {
+		
+	}
+	
 	public bool Vacancy() {
 		
 	}
