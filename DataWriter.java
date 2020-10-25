@@ -7,16 +7,34 @@ import org.json.simple.JSONObject;
 
 public class DataWriter {
 	public static void savePeople() {
-		return People;
+		Users users = Users.getInstance();
+		ArrayList<Users> rand = users.getUsers();
+		JSONArray jsonrand = new JSONArray();
 		
- 	 }
-  
-  	public static JSONObject getTenantJSON(Person person) {
-   
-   	 return personDetails;
-  	}
-	
-	public static JSONObject getLandLordJSON(Landlord Landlord) {
+		for(int i = 0; i < rand.size(); i++){
+			jsonrand.add(getUsersJSON(rand.get(i));
+		}
+  	try(FileWriter file = new FileWriter(TENANTS_FILE_NAME)){
+		file.write(jsonrand.twoJSONString());
+		file.flish();
 	}
-
+	catch(IOException e) {
+		e.printStackTrace();
+	 }
+      }
+ 			
+  	public static JSONObject getTenantJSON(Users users) {
+		JSONObject usersDetails = new JSONObject();
+		usersDetails.put(USER_FIRST_NAME, users.getFirstName());
+		usersDetails.put(USER_LAST_NAME, users.getLastName());
+		usersDetails.put(USER_USER_NAME, users.getUserName());
+		usersDetails.put(USER_EMAIL, users,getEmail());
+		usersDetails.put(USER_PASSWORD,users.getPassword());
+		usersDetails.put(USER_PHONE_NUM,users.getPhoneNum());
+		usersDetails.put(USER_REGISTERED,users.getRegistered());
+		usersDetails.put(USER_OWNER,users.getOwner());
+		usersDetails.put(USER_RATING,users.getRating());
+   
+   	 return usersDetails;
+	}
 }
