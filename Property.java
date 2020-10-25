@@ -1,15 +1,15 @@
 public class Property {
 	
 	protected String location;
-	protected boolean Vacancy;
+	protected String Vacancy;
 	protected double Price;
 	protected int yearBuilt;
 	protected int numBed;
 	protected int numBath;
-	protected boolean washerAndDryer;
-	protected boolean pool;
-	protected boolean parking;
-	protected boolean lawncare;
+	protected String washerAndDryer;
+	protected String pool;
+	protected String parking;
+	protected String lawncare;
 	protected int vistaWS;
 	protected int fpWS;
 	protected int uscWS;
@@ -37,7 +37,7 @@ public class Property {
 	public String getLocation() {
 		return location;
 	}
-	public boolean getVacancy() {
+	public String getVacancy() {
 		return Vacancy;
 	}
 	public double getPrice() {
@@ -52,14 +52,75 @@ public class Property {
 	public int getNumBath() {
 		return numBath;
 	}
-	public boolean getWasherAndDryer() {
+	public String getWasherAndDryer() {
 		return washerAndDryer;
 	}
-	public boolean pool() {
-		ret
-
+	public String getPool() {
+		return pool;
+	}
+	public String getParking() {
+		return parking;
+	}
+	public String getLawncare(){
+		return lawncare;
+	}
+	public int getVistaWS() {
+		return vistaWS;
+	}
+	public int getFPWS() {
+		return fpWS;
+	}
+	public int getUSCWS() {
+		return uscWS;
+	}
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+/////////////////	Setters	    ////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 	
-	
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	public void setVacancy(String Vacancy) {
+		this.Vacancy = Vacancy;
+	}
+	public void setPrice(double Price) {
+		this.Price = Price;
+	}
+	public void setYearBuilt(int yearBuilt) {
+		this.yearBuilt = yearBuilt;
+	}
+	public void setNumBed(int numBed) {
+		this.numBed = numBed;
+	}
+	public void setNumBath(int numBath) {
+		this.numBath = numBath;
+	}
+	public void setWasherAndDryer(String washerAndDryer) {
+		this.washerAndDryer = washerAndDryer;
+	}
+	public void setPool(String pool) {
+		this.pool = pool;
+	}
+	public void setParking (String parking) {
+		this.parking = parking;
+	}
+	public void setLawncare(String lawncare) {
+		this.lawncare = lawncare;
+	}
+	public void setVistaWS(int vistaWS) {
+		this.vistaWS = vistaWS;
+	}
+	public void setFPWS(int fpWS) {
+		this.fpWS = fpWS;
+	}
+	public void setUSCWS(int uscWS) {
+		this.uscWS = uscWS;
+	}
+/////////////////////////////////////////////////////////////////
+	/////////////// ARRAYS ////////////////////////
+	///////////////////////////////////////////////
 	public ArrayList<String> userReviews() {
 	}
 	public ArrayList<String> landlordReviews() {
