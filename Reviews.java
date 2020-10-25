@@ -1,33 +1,39 @@
 public class Reviews {
 
-    private String tenantReview, ownerReview, propertyReview, review;
+    protected String tenantReview;
+    protected String ownerReview;
+    protected String propertyReview;
+    protected String review;
 
-    public Review(String review) {
+    public Review(String review, String tenantReview, String ownerReview, String propertyReview) {
         this.review = review;
+        this.tenantReview = tenantReview;
+        this.ownerReview = ownerReview;
+        this.propertyReview = propertyReview;
     }
 
     public String getTenantReview() {
-        return "";
+        return tenantReview;
     }
 
     public String getOwnerReview() {
-        return "";
+        return ownerReview;
     }
 
     public String getPropertyReview() {
-        return "";
+        return propertyReview;
     }
 
-    public void setTenantReview(String newTenantReview) {
-        this.tenantReview = newTenantReview;
+    public void setTenantReview(String tenantReview) {
+        this.tenantReview = tenantReview;
     }
 
-    public void setOwnerReview(String newOwnerReview) {
-        this.ownerReview = newOwnerReview;
+    public void setOwnerReview(String ownerReview) {
+        this.ownerReview = ownerReview;
     }
 
-    public void setPropertyReview(String newPropertyReview) {
-        this.propertyReview = newPropertyReview;
+    public void setPropertyReview(String propertyReview) {
+        this.propertyReview = propertyReview;
     }
 
 }
