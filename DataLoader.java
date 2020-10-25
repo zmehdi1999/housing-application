@@ -42,9 +42,24 @@ public class DataLoader {
 		
 		try {
 			FileReader reader = new FileReader(PROPERTY_FILE);
-			String address = (String)json_Property.get(PROPERTY_ADDRESS);
-			String type = (String)json_Property.get(PROPERTY_TYPE);
+			String location = (String)json_Property.get(PROPERTY_LOCATION);
+			String vacancy = (String)json_Property.get(PROPERTY_VACANCY);
+			double price = (double)json_Property.get(PROPERTY_PRICE);
+			int yearBuilt = (int)json_Property.get(PROPERTY_YEARBUILT);
+			int numBed = (int)json_Property.get(PROPERTY_NUMBED);
+			int numBath = (int)json_Property.get(PROPERTY_NUMBATH);
+			String washerAndDryer = (String)json_Property.get(PROPERTY_WASHERANDDRYER);
+			String pool = (String)json_Property.get(PROPERTY_POOL);
+			String parking = (String)json_Property.get(PROPERTY_PARKING);
+			String lawncare = (String)json_Property.get(PROPERTY_LAWNCARE);
+			int vistaWS = (int)json_Property.get(PROPERTY_VISTAWS);
+			int fpWS = (int)json_Property.get(PROPERTY_FPWS);
+			int uscWS = (int)json_Property.get(PROPERTY_USCWS);
 			
 			
+			listings.add(new Property(location, vacancy, price, yearBuild, numBed, numBath, washerAndDryer, pool, parking, lawncare, vistaWS, fpWS, uscWS));
 			}
+		return listings;
+		}	catch(Exception e) {
+			e.printStackTrace();
 		}
