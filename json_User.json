@@ -11,14 +11,22 @@
 	},
 	{
 		"id": 2,
-		"firstName": "James",
-		"lastName": "Yale",
-		"owner": "true"
+		"userName": "kb3",
+		"email": "abc123@gmail.com",
+		"password": "password",
+		"firstName": "Kiesha",
+		"lastName": "Michaels",
+		"registered": "false",
+		"owner": "false"
 	},
 	{
 		"id": 3,
-		"firstName": "Rick",
-		"lastName": "Smith",
+		"userName": "kb3",
+		"email": "abc123@gmail.com",
+		"password": "password",
+		"firstName": "Kiesha",
+		"lastName": "Michaels",
+		"registered": "false",
 		"owner": "false"
 	}
 ]
