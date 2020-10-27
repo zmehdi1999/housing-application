@@ -1,4 +1,3 @@
-package teamProject;
 
 public enum Amenity {
 	
