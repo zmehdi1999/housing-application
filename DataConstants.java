@@ -11,8 +11,8 @@ public abstract class DataConstants {
 	protected static final String REGISTERED = "registered";
 	protected static final String OWNER = "owner";
 	
-	protected static final int USER_RATING = "rating";
-	protected static final int USER_PHONE_NUM = "phoneNumber";
+	protected static final int USER_RATING = 0;
+	protected static final int USER_PHONE_NUM = 0;
 	
 	
 	protected static final String PROPERTY_ADDRESS = "address";
