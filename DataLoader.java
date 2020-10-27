@@ -11,57 +11,60 @@ public class DataLoader extends DataConstants{
 	
 		ArrayList<User> users = new ArrayList<User>();
 		
+		
+		
 		try { 
 			FileReader reader = new FileReader(FILE);
-			JSONParser parser = new JSONParser();
 			JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
 			
 			
 			for(int i = 0; i < usersJSON.size(); i++) {
-				String firstName = (String)usersJSON.get(USER_FIRST_NAME);
-				String lastName = (String)usersJSON.get(USER_LAST_NAME);
-				String userName = (String)usersJSON.get(USER_USER_NAME);
-				String email = (String)usersJSON.get(USER_EMAIL);
-				String password = (String)usersJSON.get(USER_PASSWORD);
-				int phoneNum = (int)usersJSON.get(USER_PHONE_NUM);
-				String registered = (String)usersJSON.get(USER_REGISTERED);
-				//boolean tenant =(boolean)json_TenantAndOwner.get(USER_REGISTERED);
-				//we dont need tenant, bc if owner is false then they know they are a tenant, need to make OWNER a String not boolean
-				String owner = (String)usersJSON.get(USER_OWNER);
-				int rating = (int)usersJSON.get(USER_RATING);
+				JSONObject userJSON = (JSONObject)usersJSON.get(i);
+				String firstName = (String)userJSON.get(USER_FIRST_NAME);
+				String lastName = (String)userJSON.get(USER_LAST_NAME);
+				String userName = (String)userJSON.get(USER_USER_NAME);
+				String email = (String)userJSON.get(USER_EMAIL);
+				String password = (String)userJSON.get(USER_PASSWORD);
+				int phoneNum = (int)userJSON.get(USER_PHONE_NUM);
+				String registered = (String)userJSON.get(USER_REGISTERED);
+				String owner = (String)userJSON.get(USER_OWNER);
+				int rating = (int)userJSON.get(USER_RATING);
 				
 				users.add(new User(firstName, lastName, userName, email, password, phoneNum, registered, owner, rating));
 			}
 			return users;
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
+			reader.close();
+			
+		}	catch(Exception e) {
+				e.printStackTrace();
+			}
+		
+		
 	}
 	
-	public static ArrayList<Listings> loadListings() {
-		ArrayList<Listings> listings = new ArrayList<Listings>();
+	public static ArrayList<Property> loadListings() {
+		ArrayList<Property> listings = new ArrayList<Property>();
 		
 		try {
 			FileReader reader = new FileReader(PROPERTY_FILE);
-			JSONParser parser = new JSONParser();
-			JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
+			JSONArray propertiesJSON = (JSONArray)new JSONParser().parse(reader);
 			
 			
-			for(int i = 0; i < json_Property.size(); i++) {
-				String location = (String)json_Property.get(PROPERTY_LOCATION);
-				String vacancy = (String)json_Property.get(PROPERTY_VACANCY);
-				double price = (double)json_Property.get(PROPERTY_PRICE);
-				int yearBuilt = (int)json_Property.get(PROPERTY_YEARBUILT);
-				int numBed = (int)json_Property.get(PROPERTY_NUMBED);
-				int numBath = (int)json_Property.get(PROPERTY_NUMBATH);
-				String washerAndDryer = (String)json_Property.get(PROPERTY_WASHERANDDRYER);
-				String pool = (String)json_Property.get(PROPERTY_POOL);
-				String parking = (String)json_Property.get(PROPERTY_PARKING);
-				String lawncare = (String)json_Property.get(PROPERTY_LAWNCARE);
-				int vistaWS = (int)json_Property.get(PROPERTY_VISTAWS);
-				int fpWS = (int)json_Property.get(PROPERTY_FPWS);
-				int uscWS = (int)json_Property.get(PROPERTY_USCWS);
+			for(int i = 0; i < propertiesJSON.size(); i++) {
+				JSONObject propertyJSON = (JSONObject)propertiesJSON.get(i);
+				String location = (String)propertiesJSON.get(PROPERTY_LOCATION);
+				String vacancy = (String)propertiesJSON.get(PROPERTY_VACANCY);
+				double price = (double)propertiesJSON.get(PROPERTY_PRICE);
+				int yearBuilt = (int)propertiesJSON.get(PROPERTY_YEARBUILT);
+				int numBed = (int)propertiesJSON.get(PROPERTY_NUMBED);
+				int numBath = (int)propertiesJSON.get(PROPERTY_NUMBATH);
+				String washerAndDryer = (String)propertiesJSON.get(PROPERTY_WASHERANDDRYER);
+				String pool = (String)propertiesJSON.get(PROPERTY_POOL);
+				String parking = (String)propertiesJSON.get(PROPERTY_PARKING);
+				String lawncare = (String)propertiesJSON.get(PROPERTY_LAWNCARE);
+				int vistaWS = (int)propertiesJSON.get(PROPERTY_VISTAWS);
+				int fpWS = (int)propertiesJSON.get(PROPERTY_FPWS);
+				int uscWS = (int)propertiesJSON.get(PROPERTY_USCWS);
 				
 				listings.add(new Property(location, vacancy, price, yearBuild, numBed, numBath, washerAndDryer, pool, parking, lawncare, vistaWS, fpWS, uscWS));
 			}
