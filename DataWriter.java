@@ -7,23 +7,23 @@ import org.json.simple.JSONObject;
 
 public class DataWriter {
 	public static void savePeople() {
-		Users users = Users.getInstance();
-		ArrayList<Users> rand = users.getUsers();
+		User users = User.getInstance();
+		ArrayList<User> rand = users.getUsers();
 		JSONArray jsonrand = new JSONArray();
 		
 		for(int i = 0; i < rand.size(); i++){
 			jsonrand.add(getUsersJSON(rand.get(i));
 		}
   	try(FileWriter file = new FileWriter(TENANTS_FILE_NAME)){
-		file.write(jsonrand.twoJSONString());
-		file.flish();
+		file.write(jsonrand.toJSONString());
+		file.flush();
 	}
 	catch(IOException e) {
 		e.printStackTrace();
 	 }
       }
  			
-  	public static JSONObject getTenantJSON(Users users) {
+  	public static JSONObject getTenantJSON(User users) {
 		JSONObject usersDetails = new JSONObject();
 		usersDetails.put(USER_FIRST_NAME, users.getFirstName());
 		usersDetails.put(USER_LAST_NAME, users.getLastName());
