@@ -18,4 +18,21 @@ public abstract class DataConstants {
 	protected static final String PROPERTY_ADDRESS = "address";
 	protected static final String PROPERTY_TYPE = "type";
 	
+	
+	/*
+	 * TODO
+	 * PROPERTY_LOCATION
+	 * PROPERTY_VACANCY
+	 * PROPERTY_PRICE
+	 * PROPERTY_YEARBUILT
+	 * PROPERTY_NUMBED
+	 * PROPERTY_NUMBATH
+	 * PROPERTY_WASHERANDDRYER
+	 * PROPERTY_POOL
+	 * PROPERTY_PARKING
+	 * PROPERTY_LAWNCARE
+	 * PROPERTY_VISTAWS
+	 * PROPERTY_FPWS
+	 * PROPERTY_USCWS
+	 */
 }
