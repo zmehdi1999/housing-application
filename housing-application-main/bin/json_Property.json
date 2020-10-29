@@ -1,0 +1,19 @@
+[
+    {
+    "id": 1,
+    "address": "123 Apple Ave",
+    "type": "apartment",
+    "vacancy": "",
+    "yearBuild": "",
+    "washAndDryer": "",
+    "parking": "",
+    "lawncare": "",
+    "vistaWS": "",
+    "fpWS": 1,
+    "uscWS": 1,
+    "amenities": {},
+    "price": 450,
+    "beds": 1,
+    "baths": 1
+    }
+]
