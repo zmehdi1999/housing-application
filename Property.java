@@ -130,4 +130,5 @@ public class Property {
 	///////////////////////////////////////////////
 	public ArrayList<String> userReviews;
 	public ArrayList<String> landlordReviews;
+	//end of class
 }
