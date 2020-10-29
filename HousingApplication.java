@@ -48,9 +48,9 @@ public class HousingApplication{
 		return found;
 	}
 	
-	public void reviewProperty(Property property, String review) {
+	public void reviewProperty(String property, String review) {
 		for(Property p : properties) {
-			if(p.equals(property)) p.userReviews.add(review);
+			if(p.getLocation().equals(property)) p.userReviews.add(review);
 		}
 	}
 	
