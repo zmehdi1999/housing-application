@@ -12,8 +12,18 @@ public class HousingApplication{
 		properties = Database.getProperties();
 	}
 	
-	public void login(String username, String password) {
-		
+	public Tenant loginTenant(String username, String password) {
+		for(Tenant t : tenants) {
+			if(t.getUserName().equals(username) && t.getPassword().equals(password)) return t;
+		}
+		return null;
+	}
+	
+	public Owner loginOwner(String username, String password) {
+		for(Owner o : owners) {
+			if(o.getUserName().equals(username) && o.getPassword().equals(password)) return o;
+		}
+		return null;
 	}
 	
 	public ArrayList<Property> searchProperties(int minPrice, int maxPrice, int numBed, int numBath, boolean washerAndDryer, boolean pool, boolean lawnCare) {
@@ -38,11 +48,15 @@ public class HousingApplication{
 		return found;
 	}
 	
-	public void reviewProperty(Property property) {
-		
+	public void reviewProperty(Property property, String review) {
+		for(Property p : properties) {
+			if(p.equals(property)) p.userReviews.add(review);
+		}
 	}
 	
 	public void signLease(Property property) {
-		
+		for(Property p : properties) {
+			
+		}
 	}
 }

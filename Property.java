@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Property {
 	protected String location;
 	protected String Vacancy;
@@ -126,9 +128,6 @@ public class Property {
 /////////////////////////////////////////////////////////////////
 	/////////////// ARRAYS ////////////////////////
 	///////////////////////////////////////////////
-	public ArrayList<String> userReviews() {
-	}
-	public ArrayList<String> landlordReviews() {
-		
-	}
+	public ArrayList<String> userReviews;
+	public ArrayList<String> landlordReviews;
 }
