@@ -42,7 +42,7 @@ public class HousingApplicationUI  {
 					break;
 				}
 			}
-			if(currentUser.getOwner()) {
+
 				displayMainMenuOwner();
 				int userCommand = getUserCommand(mainMenuOptionsOwner.length);
 			
@@ -64,7 +64,7 @@ public class HousingApplicationUI  {
 				}
 			}
 		}
-	}
+	
 	
 	private void displayMainMenuTenant() {
 		System.out.println("\nMain Menu:");
