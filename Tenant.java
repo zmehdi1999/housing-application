@@ -9,12 +9,7 @@ public class Tenant extends User {
 	private ArrayList <String> tenantReview;
 	
 	Tenant(String firstName, String lastName, String userName, String email, String password, int phoneNum) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.userName = userName;
-		this.email = email;
-		this.password = password;
-		this.phoneNum = phoneNum;
+		super(firstName, lastName, userName, email, password, phoneNum, true, true, false, 0);
 	}
 	
 	public void addTenant(Tenant tenant)

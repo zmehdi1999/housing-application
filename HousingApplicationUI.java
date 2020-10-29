@@ -6,6 +6,7 @@ public class HousingApplicationUI {
 	private Scanner scanner;
 	private HousingApplication application;
 	private String[] mainMenuOptionsTenant = {"Login","Search Properties","Review Property","Sign Lease","Close Application"};
+	private String[] mainMenuOptionsOwner = {"Login","Add Property", "Rate Tenant","Sign Lease","Close Application"};
 	private User currentUser = new User("guest", "user", "guestuser", "guestuser@gmail.com", "guest", 555555555, false, true, false, 0);
 	
 	HousingApplicationUI(){
@@ -37,6 +38,27 @@ public class HousingApplicationUI {
 					break;
 				}
 			}
+			if(currentUser.getOwner()) {
+				displayMainMenuOwner();
+				int userCommand = getUserCommand(mainMenuOptionsOwner.length);
+			
+				if(userCommand == mainMenuOptionsOwner.length -1) break;
+			
+				switch(userCommand) {
+				case(0):
+					login();
+					break;
+				case(1):
+					addProperty();
+					break;
+				case(2):
+					rateTenant();
+					break;
+				case(3):
+					signLease();
+					break;
+				}
+			}
 		}
 	}
 	
@@ -47,6 +69,15 @@ public class HousingApplicationUI {
 		}
 		System.out.println("\n");
 	}
+	
+	private void displayMainMenuOwner() {
+		System.out.println("\nMain Menu:");
+		for(int i=0; i< mainMenuOptionsOwner.length; i++) {
+			System.out.println((i+1) + ". " + mainMenuOptionsOwner[i]);
+		}
+		System.out.println("\n");
+	}
+	
 	private int getUserCommand(int numCommands) {
 		System.out.println("\nWhat option would you like to pick?: ");
 		String input = scanner.nextLine();
@@ -103,6 +134,19 @@ public class HousingApplicationUI {
 	}
 	
 	private void signLease() {
+		if(currentUser.getRegistered()) {
+			
+		}
+		else 
+			System.out.println("Please login before signing a lease");
+			
+	}
+	
+	public void addProperty() {
+		
+	}
+	
+	public void rateTenant() {
 		
 	}
 	

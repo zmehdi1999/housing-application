@@ -59,4 +59,12 @@ public class HousingApplication{
 			
 		}
 	}
+	
+	public void addProperty() {
+		
+	}
+	
+	public void rateTenant() {
+		
+	}
 }
