@@ -99,4 +99,5 @@ public class User {
 	public void setRating(int rating) {
 		this.rating = rating; 
 	}
-}
+	//end of class
+} 
