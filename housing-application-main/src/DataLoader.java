@@ -32,13 +32,14 @@ public class DataLoader extends DataConstants{
 				
 				users.add(new User(firstName, lastName, userName, email, password, phoneNum, registered, owner, rating));
 			}
-			return users;
 			reader.close();
+			return users;
+			
 			
 		}	catch(Exception e) {
 				e.printStackTrace();
 			}
-		
+		return null;
 		
 	}
 	
@@ -52,21 +53,22 @@ public class DataLoader extends DataConstants{
 			
 			for(int i = 0; i < propertiesJSON.size(); i++) {
 				JSONObject propertyJSON = (JSONObject)propertiesJSON.get(i);
-				String location = (String)propertiesJSON.get(PROPERTY_LOCATION);
-				String vacancy = (String)propertiesJSON.get(PROPERTY_VACANCY);
-				double price = (double)propertiesJSON.get(PROPERTY_PRICE);
-				int yearBuilt = (int)propertiesJSON.get(PROPERTY_YEARBUILT);
-				int numBed = (int)propertiesJSON.get(PROPERTY_NUMBED);
-				int numBath = (int)propertiesJSON.get(PROPERTY_NUMBATH);
-				String washerAndDryer = (String)propertiesJSON.get(PROPERTY_WASHERANDDRYER);
-				String pool = (String)propertiesJSON.get(PROPERTY_POOL);
-				String parking = (String)propertiesJSON.get(PROPERTY_PARKING);
-				String lawncare = (String)propertiesJSON.get(PROPERTY_LAWNCARE);
-				int vistaWS = (int)propertiesJSON.get(PROPERTY_VISTAWS);
-				int fpWS = (int)propertiesJSON.get(PROPERTY_FPWS);
-				int uscWS = (int)propertiesJSON.get(PROPERTY_USCWS);
+				String location = (String)propertyJSON.get(PROPERTY_LOCATION);
+				String vacancy = (String)propertyJSON.get(PROPERTY_VACANCY);
+				double price = (double)propertyJSON.get(PROPERTY_PRICE);
+				int yearBuilt = (int)propertyJSON.get(PROPERTY_YEARBUILT);
+				int numBed = (int)propertyJSON.get(PROPERTY_NUMBED);
+				int numBath = (int)propertyJSON.get(PROPERTY_NUMBATH);
+				String washerAndDryer = (String)propertyJSON.get(PROPERTY_WASHERANDDRYER);
+				String pool = (String)propertyJSON.get(PROPERTY_POOL);
+				String parking = (String)propertyJSON.get(PROPERTY_PARKING);
+				String lawncare = (String)propertyJSON.get(PROPERTY_LAWNCARE);
+				int vistaWS = (int)propertyJSON.get(PROPERTY_VISTAWS);
+				int fpWS = (int)propertyJSON.get(PROPERTY_FPWS);
+				int uscWS = (int)propertyJSON.get(PROPERTY_USCWS);
 				
-				listings.add(new Property(location, vacancy, price, yearBuild, numBed, numBath, washerAndDryer, pool, parking, lawncare, vistaWS, fpWS, uscWS));
+				
+				listings.add(new Property(location, vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, lawncare, vistaWS, fpWS, uscWS));
 			}
 			return listings;
 		}
@@ -75,4 +77,5 @@ public class DataLoader extends DataConstants{
 		}
 		return null;
 	}
+	
 }
