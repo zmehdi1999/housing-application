@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class HousingApplicationUI {
@@ -52,12 +53,28 @@ public class HousingApplicationUI {
 	}
 	
 	private void login() {
-		
+		System.out.println("\nSign in as tenant(1) or owner(2)? ");
+		String input = scanner.nextLine();
+		int command = Integer.parseInt(input);
+		switch(command) {
+		case(1):
+			System.out.print("Username: ");
+			String username = scanner.nextLine();
+			System.out.print("Password: ");
+			String password = scanner.nextLine();
+			application.loginTenant(username, password);
+		case(2):
+			System.out.print("Username: ");
+			String usernameO = scanner.nextLine();
+			System.out.print("Password: ");
+			String passwordO = scanner.nextLine();
+			application.loginOwner(usernameO, passwordO);
+		}
 	}
 	
-	private boolean searchProperties() {
+	private ArrayList<Property> searchProperties() {
 		
-		return true;
+		return null;
 	}
 	
 	private void reviewProperty() {
