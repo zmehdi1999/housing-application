@@ -5,7 +5,7 @@ public class Reviews {
     protected String propertyReview;
     protected String review;
 
-    public Review(String review, String tenantReview, String ownerReview, String propertyReview) {
+    public Reviews(String review, String tenantReview, String ownerReview, String propertyReview) {
         this.review = review;
         this.tenantReview = tenantReview;
         this.ownerReview = ownerReview;
