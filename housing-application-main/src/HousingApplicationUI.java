@@ -21,10 +21,9 @@ public class HousingApplicationUI  {
 	private void run() {
 		while(true) {
 			System.out.println();
-			if(currentUser.getTenant()) {
+			if(tenant == true) {
 				displayMainMenuTenant();
 				int userCommand = getUserCommand(mainMenuOptionsTenant.length);
-			
 				if(userCommand == mainMenuOptionsTenant.length -1) break;
 			
 				switch(userCommand) {
@@ -42,10 +41,9 @@ public class HousingApplicationUI  {
 					break;
 				}
 			}
-
+			else
 				displayMainMenuOwner();
 				int userCommand = getUserCommand(mainMenuOptionsOwner.length);
-			
 				if(userCommand == mainMenuOptionsOwner.length -1) break;
 			
 				switch(userCommand) {
@@ -62,8 +60,7 @@ public class HousingApplicationUI  {
 					signLease();
 					break;
 				}
-			}
-		}
+		}}
 	
 	
 	private void displayMainMenuTenant() {
@@ -89,10 +86,14 @@ public class HousingApplicationUI  {
 		if(command >= 0 && command <= numCommands -1) return command;
 		return -1;
 	}
-	
+	boolean tenant;
 	private void login() {
 		System.out.println("\nSign in as tenant(1) or owner(2)? ");
 		String input = scanner.nextLine();
+		if(input.equalsIgnoreCase("1"))
+		{
+			tenant = true;
+		}
 		int command = Integer.parseInt(input);
 		switch(command) {
 		case(1):
