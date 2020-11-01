@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 public class User extends HousingApplication {
 	
 	protected String firstName;
@@ -11,6 +11,8 @@ public class User extends HousingApplication {
 	protected boolean tenant;
 	protected boolean owner;
 	protected int rating;
+	private static User people = null;
+	private static ArrayList<User> personList = new ArrayList<User>();
 	
 	public User(String firstName, String lastName, String userName, String email, String password, int phoneNum, boolean registered, boolean owner, int rating) {
 		this.firstName = firstName;
@@ -20,7 +22,6 @@ public class User extends HousingApplication {
 		this.password = password;
 		this.phoneNum = phoneNum;
 		this.registered = registered;
-		
 		this.owner = owner;
 		this.rating = rating; 
 	}
@@ -29,7 +30,6 @@ public class User extends HousingApplication {
 /////////////////	Getters	    ////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
-	
 	
 	public String getFirstName() {
 		return firstName;
@@ -68,7 +68,8 @@ public class User extends HousingApplication {
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 	
-	
+
+
 	public void setFirstName(String firstName){
 		this.firstName = firstName;
 	}
@@ -101,10 +102,5 @@ public class User extends HousingApplication {
 		this.rating = rating; 
 	}
 	//end of class
+}
 
-
-	public static User getInstance() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-} 

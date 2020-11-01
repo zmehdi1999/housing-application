@@ -13,4 +13,7 @@ public class Database {
 	public static ArrayList<Property> getProperties(){
 		return new ArrayList<Property>();
 	}
+	public static ArrayList<User> getUsers(){
+		return new ArrayList<User>();
+	}
 }
