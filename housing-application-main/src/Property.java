@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class Property {
 	protected String location;
-	protected String Vacancy;
-	protected double Price;
+	protected String vacancy;
+	protected int price;
 	protected int yearBuilt;
 	protected int numBed;
 	protected int numBath;
@@ -15,10 +15,10 @@ public class Property {
 	protected int fpWS;
 	protected int uscWS;
 	
-	public Property(String location, String Vacancy, double Price, int yearBuilt, int numBed, int numBath, Boolean washerAndDryer, Boolean pool, Boolean parking, Boolean pets, int vistaWS, int fpWS, int uscWS){
+	public Property(String location, String vacancy, int price, int yearBuilt, int numBed, int numBath, Boolean washerAndDryer, Boolean pool, Boolean parking, Boolean pets, int vistaWS, int fpWS, int uscWS){
 		this.location = location;
-		this.Vacancy = Vacancy;
-		this.Price = Price;
+		this.vacancy = vacancy;
+		this.price = price;
 		this.yearBuilt = yearBuilt;
 		this.numBed = numBed;
 		this.numBath = numBath;
@@ -45,10 +45,10 @@ public class Property {
 		return location;
 	}
 	public String getVacancy() {
-		return Vacancy;
+		return vacancy;
 	}
 	public double getPrice() {
-		return Price;
+		return price;
 	}
 	public int getYearBuilt() {
 		return yearBuilt;
@@ -77,7 +77,7 @@ public class Property {
 	public int getFPWS() {
 		return fpWS;
 	}
-	public int getUSCWS() {
+	public int getUscWS() {
 		return uscWS;
 	}
 ////////////////////////////////////////////////////////////////
@@ -89,11 +89,11 @@ public class Property {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public void setVacancy(String Vacancy) {
-		this.Vacancy = Vacancy;
+	public void setVacancy(String vacancy) {
+		this.vacancy = vacancy;
 	}
-	public void setPrice(double Price) {
-		this.Price = Price;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 	public void setYearBuilt(int yearBuilt) {
 		this.yearBuilt = yearBuilt;

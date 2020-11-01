@@ -43,7 +43,7 @@ public class DataLoader extends DataConstants{
 	
 	
 	public static ArrayList<Property> loadListings() {
-		ArrayList<Property> listings = new ArrayList<Property>();
+		ArrayList<Property> properties = new ArrayList<Property>();
 		
 		try {
 			FileReader reader = new FileReader(PROPERTY_FILE);
@@ -54,7 +54,7 @@ public class DataLoader extends DataConstants{
 				JSONObject propertyJSON = (JSONObject)propertiesJSON.get(i);
 				String location = (String)propertyJSON.get(PROPERTY_LOCATION);
 				String vacancy = (String)propertyJSON.get(PROPERTY_VACANCY);
-				double price = (double)propertyJSON.get(PROPERTY_PRICE);
+				int price = (int)propertyJSON.get(PROPERTY_PRICE);
 				int yearBuilt = (int)propertyJSON.get(PROPERTY_YEARBUILT);
 				int numBed = (int)propertyJSON.get(PROPERTY_NUMBED);
 				int numBath = (int)propertyJSON.get(PROPERTY_NUMBATH);
@@ -67,9 +67,9 @@ public class DataLoader extends DataConstants{
 				int uscWS = (int)propertyJSON.get(PROPERTY_USCWS);
 				
 				
-				listings.add(new Property(location, vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS));
+				properties.add(new Property(location, vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS));
 			}
-			return listings;
+			return properties;
 		}
 		catch(Exception e) {
 			e.printStackTrace();

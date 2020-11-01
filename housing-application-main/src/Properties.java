@@ -20,10 +20,10 @@ public class Properties {
 		return propertiesList;
 	}
 	
-	public void addProperty(String location, String Vacancy, double Price, int yearBuilt, int numBed, int numBath, Boolean washerAndDryer, Boolean pool, Boolean parking, Boolean pets, int vistaWS, int fpWS, int uscWS){
+	public void addProperty(String location, String Vacancy, int price, int yearBuilt, int numBed, int numBath, Boolean washerAndDryer, Boolean pool, Boolean parking, Boolean pets, int vistaWS, int fpWS, int uscWS){
 		
-		propertiesList.add(new Property(location, Vacancy,  Price, yearBuilt, numBed,  numBath,  washerAndDryer,  pool, parking,  pets,  vistaWS,  fpWS, uscWS));
-		DataWriter.savePeople();
+		propertiesList.add(new Property(location, Vacancy,  price, yearBuilt, numBed,  numBath,  washerAndDryer,  pool, parking,  pets,  vistaWS,  fpWS, uscWS));
+		DataWriter.saveProperties();
 	}
 
 }

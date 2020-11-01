@@ -33,7 +33,7 @@ public class DataWriter extends DataConstants {
 			jsonRand.add(getPropertiesJSON(rand.get(i)));
 		}
 		
-  	try(FileWriter file = new FileWriter(FILE)){
+  	try(FileWriter file = new FileWriter(PROPERTY_FILE)){
 		file.write(jsonRand.toJSONString());
 		file.flush();
 	}
@@ -72,7 +72,7 @@ public class DataWriter extends DataConstants {
   		propertyDetails.put(PROPERTY_PETS, properties.getPets());
   		propertyDetails.put(PROPERTY_VISTAWS, properties.getVistaWS());
   		propertyDetails.put(PROPERTY_FPWS, properties.getFPWS());
-  		propertyDetails.put(PROPERTY_USCWS, properties.getUSCWS());
+  		propertyDetails.put(PROPERTY_USCWS, properties.getUscWS());
   	
   		return propertyDetails;
   	}
