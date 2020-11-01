@@ -146,14 +146,18 @@ public class HousingApplicationUI  {
 		int numBed  = scanner.nextInt();
 		System.out.print("Enter number of bathrooms: ");
 		int numBath  = scanner.nextInt();
-		System.out.print("Enter 'true' for if you want a washer and dryer and enter 'false' otherwise: ");
+		System.out.print("Enter 'true' for if you want a washer and dryer or enter 'false' otherwise: ");
 		boolean washerAndDryer = scanner.nextBoolean();
-		System.out.print("Enter 'true' for if you want a pool and enter 'false' otherwise: ");
+		System.out.print("Enter 'true' for if you want a pool or enter 'false' otherwise: ");
 		boolean pool = scanner.nextBoolean();
-		System.out.print("Enter 'true' for if you want lawncare and enter 'false' otherwise: ");
-		boolean lawnCare = scanner.nextBoolean();
-		ArrayList<Property> found = application.searchProperties(minPrice, maxPrice, numBed, numBath, washerAndDryer, pool, lawnCare);
-		return found.toString();
+		System.out.print("Enter 'true' for if you want a pet friendly location or enter 'false' otherwise: ");
+		boolean pets = scanner.nextBoolean();
+		ArrayList<Property> found = application.searchProperties(minPrice, maxPrice, numBed, numBath, washerAndDryer, pool, pets);
+		if(found.toString()!=null) {
+			return found.toString();
+		}
+		else
+			return "Sorry! No properties found that match your search.";
 	}
 	
 	private void reviewProperty() {

@@ -26,7 +26,7 @@ public class HousingApplication {
 		return null;
 	}
 	
-	public ArrayList<Property> searchProperties(int minPrice, int maxPrice, int numBed, int numBath, boolean washerAndDryer, boolean pool, boolean lawnCare) {
+	public ArrayList<Property> searchProperties(int minPrice, int maxPrice, int numBed, int numBath, boolean washerAndDryer, boolean pool, boolean pets) {
 		ArrayList<Property> found = new ArrayList<Property>();
 		Property property;
 		for(int i = 0; i < properties.size(); i++) {
@@ -41,7 +41,7 @@ public class HousingApplication {
 			else continue;
 			if(property.getPool() != null && pool == true);
 			else continue;
-			if(property.getLawncare() != null && lawnCare == true);
+			if(property.getPets() != null && pets == true);
 			else continue;
 			found.add(property);
 		}

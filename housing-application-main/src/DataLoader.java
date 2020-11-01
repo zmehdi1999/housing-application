@@ -26,8 +26,8 @@ public class DataLoader extends DataConstants{
 				String email = (String)userJSON.get(USER_EMAIL);
 				String password = (String)userJSON.get(USER_PASSWORD);
 				int phoneNum = (int)userJSON.get(USER_PHONE_NUM);
-				boolean registered = (Boolean)userJSON.get(USER_REGISTERED);
-				boolean owner = (Boolean)userJSON.get(USER_OWNER);
+				Boolean registered = (Boolean)userJSON.get(USER_REGISTERED);
+				Boolean owner = (Boolean)userJSON.get(USER_OWNER);
 				int rating = (int)userJSON.get(USER_RATING);
 				
 				users.add(new User(firstName, lastName, userName, email, password, phoneNum, registered, owner, rating));
@@ -35,13 +35,12 @@ public class DataLoader extends DataConstants{
 			reader.close();
 			return users;
 			
-			
 		}	catch(Exception e) {
 				e.printStackTrace();
 			}
 		return null;
-		
 	}
+	
 	
 	public static ArrayList<Property> loadListings() {
 		ArrayList<Property> listings = new ArrayList<Property>();
@@ -59,16 +58,16 @@ public class DataLoader extends DataConstants{
 				int yearBuilt = (int)propertyJSON.get(PROPERTY_YEARBUILT);
 				int numBed = (int)propertyJSON.get(PROPERTY_NUMBED);
 				int numBath = (int)propertyJSON.get(PROPERTY_NUMBATH);
-				String washerAndDryer = (String)propertyJSON.get(PROPERTY_WASHERANDDRYER);
-				String pool = (String)propertyJSON.get(PROPERTY_POOL);
-				String parking = (String)propertyJSON.get(PROPERTY_PARKING);
-				String lawncare = (String)propertyJSON.get(PROPERTY_LAWNCARE);
+				Boolean washerAndDryer = (Boolean)propertyJSON.get(PROPERTY_WASHERANDDRYER);
+				Boolean pool = (Boolean)propertyJSON.get(PROPERTY_POOL);
+				Boolean parking = (Boolean)propertyJSON.get(PROPERTY_PARKING);
+				Boolean pets = (Boolean)propertyJSON.get(PROPERTY_PETS);
 				int vistaWS = (int)propertyJSON.get(PROPERTY_VISTAWS);
 				int fpWS = (int)propertyJSON.get(PROPERTY_FPWS);
 				int uscWS = (int)propertyJSON.get(PROPERTY_USCWS);
 				
 				
-				listings.add(new Property(location, vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, lawncare, vistaWS, fpWS, uscWS));
+				listings.add(new Property(location, vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS));
 			}
 			return listings;
 		}

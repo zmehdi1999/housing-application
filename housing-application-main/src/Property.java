@@ -7,15 +7,15 @@ public class Property {
 	protected int yearBuilt;
 	protected int numBed;
 	protected int numBath;
-	protected String washerAndDryer;
-	protected String pool;
-	protected String parking;
-	protected String lawncare;
+	protected Boolean washerAndDryer;
+	protected Boolean pool;
+	protected Boolean parking;
+	protected Boolean pets;
 	protected int vistaWS;
 	protected int fpWS;
 	protected int uscWS;
 	
-	public Property(String location, String Vacancy, double Price, int yearBuilt, int numBed, int numBath, String washerAndDryer, String pool, String parking, String lawncare, int vistaWS, int fpWS, int uscWS){
+	public Property(String location, String Vacancy, double Price, int yearBuilt, int numBed, int numBath, Boolean washerAndDryer, Boolean pool, Boolean parking, Boolean pets, int vistaWS, int fpWS, int uscWS){
 		this.location = location;
 		this.Vacancy = Vacancy;
 		this.Price = Price;
@@ -25,7 +25,7 @@ public class Property {
 		this.washerAndDryer = washerAndDryer;
 		this.pool = pool;
 		this.parking = parking;
-		this.lawncare = lawncare;
+		this.pets = pets;
 		this.vistaWS = vistaWS;
 		this.fpWS = fpWS;
 		this.uscWS = uscWS;
@@ -59,17 +59,17 @@ public class Property {
 	public int getNumBath() {
 		return numBath;
 	}
-	public String getWasherAndDryer() {
+	public Boolean getWasherAndDryer() {
 		return washerAndDryer;
 	}
-	public String getPool() {
+	public Boolean getPool() {
 		return pool;
 	}
-	public String getParking() {
+	public Boolean getParking() {
 		return parking;
 	}
-	public String getLawncare(){
-		return lawncare;
+	public Boolean getPets(){
+		return pets;
 	}
 	public int getVistaWS() {
 		return vistaWS;
@@ -104,17 +104,17 @@ public class Property {
 	public void setNumBath(int numBath) {
 		this.numBath = numBath;
 	}
-	public void setWasherAndDryer(String washerAndDryer) {
+	public void setWasherAndDryer(Boolean washerAndDryer) {
 		this.washerAndDryer = washerAndDryer;
 	}
-	public void setPool(String pool) {
+	public void setPool(Boolean pool) {
 		this.pool = pool;
 	}
-	public void setParking (String parking) {
+	public void setParking (Boolean parking) {
 		this.parking = parking;
 	}
-	public void setLawncare(String lawncare) {
-		this.lawncare = lawncare;
+	public void setLawncare(Boolean pets) {
+		this.pets = pets;
 	}
 	public void setVistaWS(int vistaWS) {
 		this.vistaWS = vistaWS;
@@ -131,4 +131,12 @@ public class Property {
 	public ArrayList<String> userReviews;
 	public ArrayList<String> landlordReviews;
 	//end of class
+	public static Property getInstance() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public void getProperties()
+	{
+		//TODO 
+	}
 }
