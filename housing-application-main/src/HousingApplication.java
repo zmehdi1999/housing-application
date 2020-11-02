@@ -1,10 +1,11 @@
 
 import java.util.ArrayList; 
 
+
 public class HousingApplication {
 	private ArrayList<Tenant> tenants; 
 	private ArrayList<Owner> owners;
-	private ArrayList<Property> properties;
+	public ArrayList<Property> properties;
 	
 	public HousingApplication() {
 		tenants = Database.getTenants();
@@ -29,23 +30,31 @@ public class HousingApplication {
 	public ArrayList<Property> searchProperties(int minPrice, int maxPrice, int numBed, int numBath, boolean washerAndDryer, boolean pool, boolean pets) {
 		ArrayList<Property> found = new ArrayList<Property>();
 		Property property;
-		for(int i = 0; i < properties.size(); i++) {
+		System.out.println("****** Properties that match your search: ******* ");
+		for(int i = 0; i < properties.size()-1; i++) {
 			property = properties.get(i);
-			if(property.getPrice() >= minPrice && property.getPrice() <= maxPrice);
-			else continue;
-			if(property.getNumBed() == numBed);
-			else continue;
-			if(property.getNumBath() == numBath);
-			else continue;
-			if(property.getWasherAndDryer() != null && washerAndDryer == true);
-			else continue;
-			if(property.getPool() != null && pool == true);
-			else continue;
-			if(property.getPets() != null && pets == true);
-			else continue;
-			found.add(property);
+			if(property.getNumBed() == numBed && property.getNumBath() == numBath && property.getWasherAndDryer().equals(washerAndDryer) 
+			&& property.getPool().equals(pool)&& property.getPets().equals(pets)) 
+				{
+				found.add(property);
+				}
 		}
+		/*for(int i = 0; i < found.size(); i++) {
+			
+			System.out.println(found.get(i).getLocation());
+			System.out.println(found.get(i).getPrice());
+			System.out.println(found.get(i).getUscWS());
+			System.out.println(found.get(i).getPets());
+			System.out.println(found.get(i).getPool());
+			System.out.println(found.get(i).getWasherAndDryer());
+		
+		}*/
+		System.out.println(found);
 		return found;
+	}
+	public void loadProperties(Property Property)
+	{
+		DataLoader.loadListings();
 	}
 	
 	public void reviewProperty(String property, String review) {
@@ -60,11 +69,9 @@ public class HousingApplication {
 		}
 	}
 	
-	public void addProperty(String location, String Vacancy, double price, int yearBuilt, int numBed, int numBath, boolean washerAndDryer, boolean pool, boolean parking, boolean pets, int vistaWS, int fpWS, int uscWS) {
-		Properties.addProperty(location, Vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS);
+	public static void addProperty(String location, boolean Vacancy, int price, int yearBuilt, int numBed, int numBath, boolean washerAndDryer, boolean pool, boolean parking, boolean pets, int vistaWS, int fpWS, int uscWS) {
+		//Properties.addProperty(location, Vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS);
+		System.out.println("Property manager has entered a new unit!");
 	}
-	
-	public void rateTenant() {
-		
-	}
+
 }

@@ -11,7 +11,7 @@ public class Tenant extends User {
 	Tenant(String firstName, String lastName, String userName, String email, String password, int phoneNum) {
 		super(firstName, lastName, userName, email, password, phoneNum, true, false, 0);
 	}
-	
+	/*
 	public void addTenant(Tenant tenant)
 	{
 		
@@ -59,6 +59,6 @@ public class Tenant extends User {
 	private String showReviews()
 	{
 		return null;
-	}
+	}*/
 	
 }

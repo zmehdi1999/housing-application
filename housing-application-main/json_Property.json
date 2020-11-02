@@ -5,9 +5,9 @@
     "type": "apartment",
     "vacancy": "",
     "yearBuild": "",
-    "washAndDryer": "",
-    "parking": "",
-    "lawncare": "",
+    "washAndDryer": true,
+    "parking": true,
+    "pets": true,
     "vistaWS": "",
     "fpWS": 1,
     "uscWS": 1,
@@ -16,4 +16,40 @@
     "beds": 1,
     "baths": 1
     }
+
+    {
+    "id": 2,
+    "address": "124 Apple Ave",
+    "type": "apartment",
+    "vacancy": "",
+    "yearBuild": "",
+    "washAndDryer": true,
+    "parking": true,
+    "pets": true,
+    "vistaWS": "",
+    "fpWS": 1,
+    "uscWS": 1,
+    "amenities": {},
+    "price": 350,
+    "beds": 1,
+    "baths": 1
+    }
+    {
+    "id": 3,
+    "address": "125 Apple Ave",
+    "type": "apartment",
+    "vacancy": "",
+    "yearBuild": "",
+    "washAndDryer": true,
+    "parking": true,
+    "pets": true,
+    "vistaWS": "",
+    "fpWS": 1,
+    "uscWS": 1,
+    "amenities": {},
+    "price": 250,
+    "beds": 1,
+    "baths": 1
+    }
+
 ]

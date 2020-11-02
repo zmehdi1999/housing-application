@@ -1,11 +1,12 @@
 
 import java.io.FileReader;
+
 import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-public class DataLoader extends DataConstants{
+public class DataLoader extends DataConstants  {
 	
 	public static ArrayList<User> loadUsers(){
 	
@@ -15,6 +16,7 @@ public class DataLoader extends DataConstants{
 		
 		try { 
 			FileReader reader = new FileReader(FILE);
+			JSONParser parser = new JSONParser();
 			JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
 			
 			
@@ -32,7 +34,6 @@ public class DataLoader extends DataConstants{
 				
 				users.add(new User(firstName, lastName, userName, email, password, phoneNum, registered, owner, rating));
 			}
-			reader.close();
 			return users;
 			
 		}	catch(Exception e) {
@@ -43,18 +44,18 @@ public class DataLoader extends DataConstants{
 	
 	
 	public static ArrayList<Property> loadListings() {
-		ArrayList<Property> listings = new ArrayList<Property>();
+		ArrayList<Property> properties = new ArrayList<Property>();
 		
 		try {
 			FileReader reader = new FileReader(PROPERTY_FILE);
+			JSONParser parser = new JSONParser();
 			JSONArray propertiesJSON = (JSONArray)new JSONParser().parse(reader);
-			
 			
 			for(int i = 0; i < propertiesJSON.size(); i++) {
 				JSONObject propertyJSON = (JSONObject)propertiesJSON.get(i);
 				String location = (String)propertyJSON.get(PROPERTY_LOCATION);
-				String vacancy = (String)propertyJSON.get(PROPERTY_VACANCY);
-				double price = (double)propertyJSON.get(PROPERTY_PRICE);
+				Boolean vacancy = (Boolean)propertyJSON.get(PROPERTY_VACANCY);
+				int price = (int)propertyJSON.get(PROPERTY_PRICE);
 				int yearBuilt = (int)propertyJSON.get(PROPERTY_YEARBUILT);
 				int numBed = (int)propertyJSON.get(PROPERTY_NUMBED);
 				int numBath = (int)propertyJSON.get(PROPERTY_NUMBATH);
@@ -65,11 +66,9 @@ public class DataLoader extends DataConstants{
 				int vistaWS = (int)propertyJSON.get(PROPERTY_VISTAWS);
 				int fpWS = (int)propertyJSON.get(PROPERTY_FPWS);
 				int uscWS = (int)propertyJSON.get(PROPERTY_USCWS);
-				
-				
-				listings.add(new Property(location, vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS));
+				properties.add(new Property(location, vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS));
 			}
-			return listings;
+			return properties;
 		}
 		catch(Exception e) {
 			e.printStackTrace();

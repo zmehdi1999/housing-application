@@ -1,8 +1,8 @@
 
-public abstract class DataConstants extends HousingApplicationUI {
+public class DataConstants {
 
-	protected static final String FILE = "src/json_User.json";
-	protected static final String PROPERTY_FILE = "src/json_Property.json";
+	protected static final String FILE = "json_User.json";
+	protected static final String PROPERTY_FILE = "json_Property.json";
 	protected static final String USER_USER_NAME = "";
 	protected static final String USER_FIRST_NAME = "firstName";
 	protected static final String USER_LAST_NAME = "lastName";
@@ -19,15 +19,15 @@ public abstract class DataConstants extends HousingApplicationUI {
 	
 	
 	protected static final String PROPERTY_LOCATION = "location";
-	protected static final String PROPERTY_VACANCY = "vacancy";
-	protected static final double PROPERTY_PRICE = 2.0;
+	protected static final boolean PROPERTY_VACANCY = true;
+	protected static final int PROPERTY_PRICE = 100000;
 	protected static final int  PROPERTY_YEARBUILT = 1999;
-	protected static final int PROPERTY_NUMBED = 2;
-	protected static final int PROPERTY_NUMBATH = 2;
-	protected static final Boolean PROPERTY_WASHERANDDRYER = false;
-	protected static final Boolean  PROPERTY_POOL = false;
-	protected static final Boolean PROPERTY_PARKING = false;
-	protected static final Boolean  PROPERTY_PETS = false;
+	protected static final int PROPERTY_NUMBED = 1;
+	protected static final int PROPERTY_NUMBATH = 1;
+	protected static final Boolean PROPERTY_WASHERANDDRYER = true;
+	protected static final Boolean  PROPERTY_POOL = true;
+	protected static final Boolean PROPERTY_PARKING = true;
+	protected static final Boolean  PROPERTY_PETS = true;
 	protected static final int  PROPERTY_VISTAWS = 1;
 	protected static final int PROPERTY_FPWS = 1;
 	protected static final int  PROPERTY_USCWS = 1;

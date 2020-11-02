@@ -10,7 +10,8 @@ public class Owner extends User{
 	{
 		super(firstName, lastName, userName, email, password, phoneNum, true, true, 0);
 	}
-	public void addOwner(Owner owner)
+	
+	/*public void addOwner(Owner owner)
 	{
 		
 	}
@@ -41,6 +42,6 @@ public class Owner extends User{
 	private String showReviews()
 	{
 		return null;
-	}
+	}*/
 	//end of class
 }

@@ -6,6 +6,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;	
 
 public class DataWriter extends DataConstants {
+	
 	public static void savePeople() {
 		People people = People.getInstance();
 		ArrayList<User> rand = people.getPeople();
@@ -33,7 +34,7 @@ public class DataWriter extends DataConstants {
 			jsonRand.add(getPropertiesJSON(rand.get(i)));
 		}
 		
-  	try(FileWriter file = new FileWriter(FILE)){
+  	try(FileWriter file = new FileWriter(PROPERTY_FILE)){
 		file.write(jsonRand.toJSONString());
 		file.flush();
 	}
@@ -59,6 +60,7 @@ public class DataWriter extends DataConstants {
 	}
   	public static JSONObject getPropertiesJSON(Property properties)
   	{
+  		
   		JSONObject propertyDetails = new JSONObject();
   		propertyDetails.put(PROPERTY_LOCATION, properties.getLocation());
   		propertyDetails.put(PROPERTY_VACANCY, properties.getVacancy());
@@ -72,7 +74,7 @@ public class DataWriter extends DataConstants {
   		propertyDetails.put(PROPERTY_PETS, properties.getPets());
   		propertyDetails.put(PROPERTY_VISTAWS, properties.getVistaWS());
   		propertyDetails.put(PROPERTY_FPWS, properties.getFPWS());
-  		propertyDetails.put(PROPERTY_USCWS, properties.getUSCWS());
+  		propertyDetails.put(PROPERTY_USCWS, properties.getUscWS());
   	
   		return propertyDetails;
   	}
