@@ -2,6 +2,21 @@
 import java.util.ArrayList;
 
 public class Database {
+	private ArrayList<Property> properties;
+	private static Database database;
+	
+	private Database()
+	{
+		properties = DataLoader.loadListings();
+	}
+	public static Database getInstance(){
+		if(database==null)
+		{
+			database = new Database();
+		}
+		return database;
+	}
+	
 	public static ArrayList<Tenant> getTenants(){
 		return new ArrayList<Tenant>();
 	}
@@ -10,8 +25,8 @@ public class Database {
 		return new ArrayList<Owner>();
 	}
 	
-	public static ArrayList<Property> getProperties(){
-		return new ArrayList<Property>();
+	public ArrayList<Property> getProperties(){
+		return properties;
 	}
 	public static ArrayList<User> getUsers(){
 		return new ArrayList<User>();

@@ -55,19 +55,21 @@ public class DataLoader extends DataConstants  {
 				JSONObject propertyJSON = (JSONObject)propertiesJSON.get(i);
 				String location = (String)propertyJSON.get(PROPERTY_LOCATION);
 				Boolean vacancy = (Boolean)propertyJSON.get(PROPERTY_VACANCY);
-				int price = (int)propertyJSON.get(PROPERTY_PRICE);
-				int yearBuilt = (int)propertyJSON.get(PROPERTY_YEARBUILT);
-				int numBed = (int)propertyJSON.get(PROPERTY_NUMBED);
-				int numBath = (int)propertyJSON.get(PROPERTY_NUMBATH);
+				int price = ((Long)propertyJSON.get(PROPERTY_PRICE)).intValue();
+				int yearBuilt = ((Long)propertyJSON.get(PROPERTY_YEARBUILT)).intValue();
+				int numBed = ((Long)propertyJSON.get(PROPERTY_NUMBED)).intValue();
+				int numBath = ((Long)propertyJSON.get(PROPERTY_NUMBATH)).intValue();
 				Boolean washerAndDryer = (Boolean)propertyJSON.get(PROPERTY_WASHERANDDRYER);
 				Boolean pool = (Boolean)propertyJSON.get(PROPERTY_POOL);
 				Boolean parking = (Boolean)propertyJSON.get(PROPERTY_PARKING);
 				Boolean pets = (Boolean)propertyJSON.get(PROPERTY_PETS);
-				int vistaWS = (int)propertyJSON.get(PROPERTY_VISTAWS);
-				int fpWS = (int)propertyJSON.get(PROPERTY_FPWS);
-				int uscWS = (int)propertyJSON.get(PROPERTY_USCWS);
+				int vistaWS = ((Long)propertyJSON.get(PROPERTY_VISTAWS)).intValue();
+				int fpWS = ((Long)propertyJSON.get(PROPERTY_FPWS)).intValue();
+				int uscWS = ((Long)propertyJSON.get(PROPERTY_USCWS)).intValue();
+				System.out.println(properties);
 				properties.add(new Property(location, vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS));
 			}
+			System.out.println(properties.size());
 			return properties;
 		}
 		catch(Exception e) {

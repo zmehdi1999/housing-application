@@ -10,7 +10,7 @@ public class HousingApplication {
 	public HousingApplication() {
 		tenants = Database.getTenants();
 		owners = Database.getOwners();
-		properties = Database.getProperties();
+		properties = Database.getInstance().getProperties();
 	}
 	public Tenant loginTenant(String username, String password) {
 		for(Tenant t : tenants) {
@@ -28,16 +28,17 @@ public class HousingApplication {
 	public ArrayList<Property> searchProperties(int minPrice, int maxPrice, int numBed, int numBath, boolean washerAndDryer, boolean pool, boolean pets) {
 		ArrayList<Property> found = new ArrayList<Property>();
 		Property property;
+		//DataLoader.loadListings();
 		System.out.println("****** Properties that match your search: ******* ");
-		for(int i = 0; i < properties.size()-1; i++) {
+		for(int i = 0; i < properties.size(); i++) {
 			property = properties.get(i);
-			if(property.getNumBed() == numBed && property.getNumBath() == numBath && property.getWasherAndDryer().equals(washerAndDryer) 
-			&& property.getPool().equals(pool)&& property.getPets().equals(pets)) 
-				{
+			//System.out.println(property);
+			if(property.getNumBed() == numBed && property.getNumBath() == numBath && property.getWasherAndDryer()==washerAndDryer&& property.getPool().booleanValue()==pool&& property.getPets()== pets)
+			//&& property.getPool()== pool && property.getPets()== pets
+			{
 				found.add(property);
-				}
+			}
 		}
-
 		System.out.println(found);
 		return found;
 	}

@@ -3,53 +3,56 @@
     "id": 1,
     "address": "123 Apple Ave",
     "type": "apartment",
-    "vacancy": "",
-    "yearBuild": "",
+    "vacancy": true,
+    "yearBuild": 1985,
     "washAndDryer": true,
     "parking": true,
     "pets": true,
-    "vistaWS": "",
+    "vistaWS": 5,
     "fpWS": 1,
     "uscWS": 1,
     "amenities": {},
     "price": 450,
     "beds": 1,
-    "baths": 1
+    "baths": 1,
+    "pool": true
     }
 
     {
     "id": 2,
     "address": "124 Apple Ave",
     "type": "apartment",
-    "vacancy": "",
-    "yearBuild": "",
+    "vacancy": true,
+    "yearBuild": 1999,
     "washAndDryer": true,
     "parking": true,
     "pets": true,
-    "vistaWS": "",
+    "vistaWS": 3,
     "fpWS": 1,
     "uscWS": 1,
     "amenities": {},
     "price": 350,
     "beds": 1,
-    "baths": 1
+    "baths": 1,
+    "pool": false
     }
     {
     "id": 3,
     "address": "125 Apple Ave",
     "type": "apartment",
-    "vacancy": "",
-    "yearBuild": "",
+    "vacancy": true,
+    "yearBuild": 1950,
     "washAndDryer": true,
     "parking": true,
     "pets": true,
-    "vistaWS": "",
+    "vistaWS": 2,
     "fpWS": 1,
     "uscWS": 1,
     "amenities": {},
     "price": 250,
-    "beds": 1,
-    "baths": 1
+    "beds": 2,
+    "baths": 1,
+    "pool": true
     }
 
 ]

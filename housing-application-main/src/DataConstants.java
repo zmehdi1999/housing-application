@@ -18,18 +18,18 @@ public class DataConstants {
 	protected static final String PROPERTY_TYPE = "type";
 	
 	
-	protected static final String PROPERTY_LOCATION = "location";
-	protected static final boolean PROPERTY_VACANCY = true;
-	protected static final int PROPERTY_PRICE = 100000;
-	protected static final int  PROPERTY_YEARBUILT = 1999;
-	protected static final int PROPERTY_NUMBED = 1;
-	protected static final int PROPERTY_NUMBATH = 1;
-	protected static final Boolean PROPERTY_WASHERANDDRYER = true;
-	protected static final Boolean  PROPERTY_POOL = true;
-	protected static final Boolean PROPERTY_PARKING = true;
-	protected static final Boolean  PROPERTY_PETS = true;
-	protected static final int  PROPERTY_VISTAWS = 1;
-	protected static final int PROPERTY_FPWS = 1;
-	protected static final int  PROPERTY_USCWS = 1;
+	protected static final String PROPERTY_LOCATION = "address";
+	protected static final String PROPERTY_VACANCY = "vacanacy";
+	protected static final String PROPERTY_PRICE = "price";
+	protected static final String PROPERTY_YEARBUILT = "yearBuild";
+	protected static final String PROPERTY_NUMBED = "beds";
+	protected static final String PROPERTY_NUMBATH = "baths";
+	protected static final String PROPERTY_WASHERANDDRYER = "washAndDryer";
+	protected static final String  PROPERTY_POOL = "pool";
+	protected static final String PROPERTY_PARKING = "parking";
+	protected static final String  PROPERTY_PETS = "pets";
+	protected static final String PROPERTY_VISTAWS = "vistaWS";
+	protected static final String PROPERTY_FPWS = "fpWS";
+	protected static final String  PROPERTY_USCWS = "uscWS";
 	 
 }

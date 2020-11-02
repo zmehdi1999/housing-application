@@ -24,6 +24,7 @@ public class Property {
 		this.numBath = numBath;
 		this.washerAndDryer = washerAndDryer;
 		this.pool = pool;
+		System.out.println(pool);
 		this.parking = parking;
 		this.pets = pets;
 		this.vistaWS = vistaWS;
