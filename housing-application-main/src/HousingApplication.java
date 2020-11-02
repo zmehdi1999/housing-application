@@ -12,7 +12,6 @@ public class HousingApplication {
 		owners = Database.getOwners();
 		properties = Database.getProperties();
 	}
-	
 	public Tenant loginTenant(String username, String password) {
 		for(Tenant t : tenants) {
 			if(t.getUserName().equals(username) && t.getPassword().equals(password)) return t;
@@ -26,7 +25,6 @@ public class HousingApplication {
 		}
 		return null;
 	}
-	
 	public ArrayList<Property> searchProperties(int minPrice, int maxPrice, int numBed, int numBath, boolean washerAndDryer, boolean pool, boolean pets) {
 		ArrayList<Property> found = new ArrayList<Property>();
 		Property property;
@@ -39,16 +37,7 @@ public class HousingApplication {
 				found.add(property);
 				}
 		}
-		/*for(int i = 0; i < found.size(); i++) {
-			
-			System.out.println(found.get(i).getLocation());
-			System.out.println(found.get(i).getPrice());
-			System.out.println(found.get(i).getUscWS());
-			System.out.println(found.get(i).getPets());
-			System.out.println(found.get(i).getPool());
-			System.out.println(found.get(i).getWasherAndDryer());
-		
-		}*/
+
 		System.out.println(found);
 		return found;
 	}
@@ -68,10 +57,9 @@ public class HousingApplication {
 			
 		}
 	}
-	
 	public static void addProperty(String location, boolean Vacancy, int price, int yearBuilt, int numBed, int numBath, boolean washerAndDryer, boolean pool, boolean parking, boolean pets, int vistaWS, int fpWS, int uscWS) {
 		//Properties.addProperty(location, Vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS);
-		System.out.println("Property manager has entered a new unit!");
+		System.out.println("Property manager has addded a new unit!");
 	}
 
 }

@@ -27,7 +27,7 @@ public class HousingApplicationUI  {
 				System.out.println("- You are currently operating as a Guest user");
 				System.out.println("**********************************************");
 				displayMainMenu(); 
-				int userCommand = getUserCommand(mainMenuOptions.length);//error
+				int userCommand = getUserCommand(mainMenuOptions.length);
 				if(userCommand == mainMenuOptions.length -1) break;
 			
 				switch(userCommand) {
@@ -47,7 +47,7 @@ public class HousingApplicationUI  {
 			}
 			if(tenant == true) {	
 				displayMainMenuTenant(); 
-				int userCommand1 = getUserCommand(mainMenuOptionsTenant.length);//error
+				int userCommand1 = getUserCommand(mainMenuOptionsTenant.length);
 				if(userCommand1 == mainMenuOptionsTenant.length -1) break;
 			
 				switch(userCommand1) {

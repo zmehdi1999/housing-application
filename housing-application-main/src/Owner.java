@@ -11,37 +11,5 @@ public class Owner extends User{
 		super(firstName, lastName, userName, email, password, phoneNum, true, true, 0);
 	}
 	
-	/*public void addOwner(Owner owner)
-	{
-		
-	}
-	public void removeOwner(Owner owner)
-	{
-		
-	}
-	public void addProperty()
-	{
-		
-	}
-	private void removeProperty()
-	{
-		
-	}
-	private Tenant rateTentant(Tenant tenant)
-	{
-		return tenant;
-	}
-	private Tenant reviewTenant(Tenant tenant)
-	{
-		return tenant;
-	}
-	private double calculateRating()
-	{
-		return rating;
-	}
-	private String showReviews()
-	{
-		return null;
-	}*/
-	//end of class
+
 }
