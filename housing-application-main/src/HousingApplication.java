@@ -60,8 +60,8 @@ public class HousingApplication {
 		}
 	}
 	
-	public void addProperty() {
-		
+	public void addProperty(String location, String Vacancy, double price, int yearBuilt, int numBed, int numBath, boolean washerAndDryer, boolean pool, boolean parking, boolean pets, int vistaWS, int fpWS, int uscWS) {
+		Properties.addProperty(location, Vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS);
 	}
 	
 	public void rateTenant() {

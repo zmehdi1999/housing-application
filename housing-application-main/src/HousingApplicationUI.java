@@ -178,7 +178,33 @@ public class HousingApplicationUI  {
 	}
 	
 	public void addProperty() {
-		
+		System.out.print("Enter location: ");
+		String location = scanner.nextLine();
+		System.out.print("Enter Vancancy: ");
+		String Vacancy = scanner.nextLine();
+		System.out.print("Enter price: ");
+		double price  = scanner.nextDouble();
+		System.out.print("Enter year built: ");
+		int yearBuilt = scanner.nextInt();
+		System.out.print("Enter number of bedrooms: ");
+		int numBed  = scanner.nextInt();
+		System.out.print("Enter number of bathrooms: ");
+		int numBath  = scanner.nextInt();
+		System.out.print("Enter 'true' for if it has a washer and dryer or enter 'false' otherwise: ");
+		boolean washerAndDryer = scanner.nextBoolean();
+		System.out.print("Enter 'true' for if it has a pool or enter 'false' otherwise: ");
+		boolean pool = scanner.nextBoolean();
+		System.out.print("Enter 'true' for if it has a parking or enter 'false' otherwise: ");
+		boolean parking = scanner.nextBoolean();
+		System.out.print("Enter 'true' for if it is pet friendly location or enter 'false' otherwise: ");
+		boolean pets = scanner.nextBoolean();
+		System.out.print("Enter vista walk score: ");
+		int vistaWS = scanner.nextInt();
+		System.out.print("Enter five points walk score: ");
+		int fpWS = scanner.nextInt();
+		System.out.print("Enter USC walk score: ");
+		int uscWS = scanner.nextInt();
+		application.addProperty(location, Vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS);
 	}
 	
 	public void rateTenant() {
