@@ -15,12 +15,11 @@
     "price": 450,
     "beds": 1,
     "baths": 1,
-    "pool": true
+    "pool": true,
     "wifi": true,
     "gym": true,
     "furnished": true
-    }
-
+    },
     {
     "id": 2,
     "address": "124 Apple Ave",
@@ -37,11 +36,11 @@
     "price": 350,
     "beds": 1,
     "baths": 1,
-    "pool": true
+    "pool": true,
     "wifi": true,
     "gym": true,
     "furnished": true
-    }
+    },
     {
     "id": 3,
     "address": "125 Apple Ave",
@@ -58,7 +57,7 @@
     "price": 250,
     "beds": 1,
     "baths": 1,
-    "pool": true
+    "pool": true,
     "wifi": true,
     "gym": true,
     "furnished": true
