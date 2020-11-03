@@ -16,8 +16,7 @@
     "beds": 1,
     "baths": 1,
     "pool": true
-    }
-
+    },
     {
     "id": 2,
     "address": "124 Apple Ave",
@@ -35,7 +34,7 @@
     "beds": 1,
     "baths": 1,
     "pool": true
-    }
+    },
     {
     "id": 3,
     "address": "125 Apple Ave",

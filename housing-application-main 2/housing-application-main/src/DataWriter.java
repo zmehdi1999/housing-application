@@ -56,11 +56,10 @@ public class DataWriter extends DataConstants {
 		usersDetails.put(USER_OWNER,users.getOwner());
 		usersDetails.put(USER_RATING,users.getRating());
    
-   	 return usersDetails;
+   	 	return usersDetails;
 	}
   	public static JSONObject getPropertiesJSON(Property properties)
   	{
-  		
   		JSONObject propertyDetails = new JSONObject();
   		propertyDetails.put(PROPERTY_LOCATION, properties.getLocation());
   		propertyDetails.put(PROPERTY_VACANCY, properties.getVacancy());
@@ -74,7 +73,7 @@ public class DataWriter extends DataConstants {
   		propertyDetails.put(PROPERTY_PETS, properties.getPets());
   		propertyDetails.put(PROPERTY_VISTAWS, properties.getVistaWS());
   		propertyDetails.put(PROPERTY_FPWS, properties.getFPWS());
-  		propertyDetails.put(PROPERTY_USCWS, properties.getUscWS());
+  		propertyDetails.put(PROPERTY_USCWS, properties.getUSCWS());
   	
   		return propertyDetails;
   	}

@@ -2,6 +2,8 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import org.json.simple.JSONObject;
+
 public class HousingApplicationUI  {
 	private Scanner scanner;
 	private HousingApplication application;
@@ -221,7 +223,7 @@ public class HousingApplicationUI  {
 		System.out.print("Enter location: ");
 		String location = scanner.nextLine();
 		System.out.print("Enter Vancancy: ");
-		boolean Vacancy = scanner.nextBoolean();
+		boolean vacancy = scanner.nextBoolean();
 		System.out.print("Enter price: ");
 		int price  = scanner.nextInt();
 		System.out.print("Enter year built: ");
@@ -244,7 +246,24 @@ public class HousingApplicationUI  {
 		int fpWS = scanner.nextInt();
 		System.out.print("Enter USC walk score: ");
 		int uscWS = scanner.nextInt();
-		application.addProperty(location, Vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS);
+		application.addProperty(location, vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS);
+		
+		JSONObject prop = new JSONObject();
+		
+		prop.put("address", location);
+		prop.put("vacancy", vacancy);
+		prop.put("price", price);
+		prop.put("yearBuild", yearBuilt);
+		prop.put("beds", numBed);
+		prop.put("baths", numBath);
+		prop.put("washAndDryer", washerAndDryer);
+		prop.put("pool", pool);
+		prop.put("parking", parking);
+		prop.put("pets", pets);
+		prop.put("vistaWS", vistaWS);
+		prop.put("fpWS", fpWS);
+		prop.put("uscWS", uscWS);
+		
 	
 		
 	}
