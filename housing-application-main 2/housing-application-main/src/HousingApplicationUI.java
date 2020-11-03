@@ -20,9 +20,10 @@ public class HousingApplicationUI  {
 	}
 	
 	private void run() {
-		while(true) {
+		boolean close = false;
+		while(!close) {
 			System.out.println();
-			{
+			
 				System.out.println("Welcome to the Team-OSCAR Housing Application!");
 				System.out.println("- You are currently operating as a Guest user");
 				System.out.println("**********************************************");
@@ -36,6 +37,9 @@ public class HousingApplicationUI  {
 					break;
 				case(1):
 					searchProperties();
+					System.out.println("Would you like to sign a lease for a property? (Type true if yes, and false if no)");
+					boolean lease = scanner.nextBoolean();
+					if(lease) signLease();
 					break;
 				case(2):
 					reviewProperty();
@@ -43,8 +47,11 @@ public class HousingApplicationUI  {
 				case(3):
 					signLease();
 					break;
+				case(4):
+					close = closeApp();
+					break;
 				}
-			}
+			
 			if(tenant == true) {	
 				displayMainMenuTenant(); 
 				int userCommand1 = getUserCommand(mainMenuOptionsTenant.length);
@@ -53,12 +60,18 @@ public class HousingApplicationUI  {
 				switch(userCommand1) {
 				case(0):
 					searchProperties();
+					System.out.println("Would you like to sign a lease for a property? (Type true if yes, and false if no)");
+					boolean lease = scanner.nextBoolean();
+					if(lease) signLease();
 					break;
 				case(1):
 					reviewProperty();
 					break;
 				case(2):
 					signLease();
+					break;
+				case(3):
+					close = closeApp();
 					break;
 				}
 			}
@@ -78,10 +91,18 @@ public class HousingApplicationUI  {
 				case(2):
 					signLease();
 					break;
+				case(3):
+					close = closeApp();
+					break;
 				}
-				}break;
+				}
+			//break;
 			}
 		}
+	private boolean closeApp() {
+		return true;
+	}
+	
 	private void displayMainMenu()
 	{
 		System.out.println("\nMain Menu:");
@@ -109,8 +130,9 @@ public class HousingApplicationUI  {
 	
 	private int getUserCommand(int numCommands) {
 		System.out.println("\nWhat option would you like to pick?: ");
-		String input = scanner.nextLine();
-		int command = Integer.parseInt(input)-1;
+		//String input = scanner.nextLine();
+		//int command = Integer.parseInt(input)-1;
+		int command = scanner.nextInt()-1;
 		if(command >= 0 && command <= numCommands -1) return command;
 		return -1;
 	}
