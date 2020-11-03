@@ -1,4 +1,6 @@
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.json.simple.JSONObject; 
@@ -74,7 +76,9 @@ public class HousingApplication {
 	
 	public static void addProperty(String location, boolean vacancy, int price, int yearBuilt, int numBed, int numBath, boolean washerAndDryer, boolean pool, boolean parking, boolean pets, int vistaWS, int fpWS, int uscWS) {
 		//Properties.addProperty(location, Vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS);
-		System.out.println("Property manager has addded a new unit!");
+		
+		
+		
 		
 		JSONObject prop = new JSONObject();
 
@@ -91,6 +95,16 @@ public class HousingApplication {
 		prop.put("vistaWS", vistaWS);
 		prop.put("fpWS", fpWS);
 		prop.put("uscWS", uscWS);
+		
+		
+		try(FileWriter file = new FileWriter(DataConstants.FILE)){
+			file.write(prop.toJSONString());
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("Property manager has addded a new unit!");
 	}
 
 }
