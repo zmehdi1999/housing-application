@@ -268,6 +268,22 @@ public class HousingApplicationUI  {
 		System.out.println("Property manager has addded a new unit!");
 	}
 	
+	private void createAccount() {
+		System.out.print("Username: ");
+		String userName = scanner.next();
+		System.out.print("Email: "); 
+		String email = scanner.next();
+		System.out.print("Password: "); 
+		String password = scanner.next();
+		System.out.print("First Name: "); 
+		String firstName = scanner.next();
+		System.out.print("Last Name: "); 
+		String lastName = scanner.next();
+		boolean registered = true;
+		System.out.print("Owner(type 'true') or tenant(type 'false')?"); 
+		boolean owner = scanner.nextBoolean();
+		currentUser = application.createAccount(firstName, lastName, userName, email, password, 00000, registered, owner); 
+	}
 	
 	public void rateTenant() {
 		

@@ -99,12 +99,39 @@ public class HousingApplication {
 		prop.put("fpWS", fpWS);
 		prop.put("uscWS", uscWS);
 		
-		try(FileWriter file = new FileWriter(DataConstants.FILE)){
+		try(FileWriter file = new FileWriter(DataConstants.PROPERTY_FILE)){
 			file.write(prop.toJSONString());
 			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public User createAccount(String firstName, String lastName, String userName, String email, String password, int phoneNum, boolean registered, boolean owner) {
+		JSONObject user = new JSONObject();
+		User newUser;
+
+		user.put("userName", userName);
+		user.put("email", email);
+		user.put("password", password);
+		user.put("firstName", firstName);
+		user.put("lastName", lastName);
+		user.put("registered", registered);
+		user.put("owner", owner);
+		
+		try(FileWriter file = new FileWriter(DataConstants.FILE)){
+			file.write(user.toJSONString());
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		if(owner)
+			newUser = new Owner(firstName, lastName, userName, email, password, 0000000);
+		else
+			newUser = new Tenant(firstName, lastName, userName, email, password, 0000000);
+		
+		return newUser;
 	}
 
 }
