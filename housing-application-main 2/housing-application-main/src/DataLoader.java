@@ -53,6 +53,10 @@ public class DataLoader extends DataConstants  {
 			
 			for(int i = 0; i < propertiesJSON.size(); i++) {
 				JSONObject propertyJSON = (JSONObject)propertiesJSON.get(i);
+				Boolean wifi = (Boolean)propertyJSON.get(PROPERTY_WIFI);
+				Boolean gym = (Boolean)propertyJSON.get(PROPERTY_GYM);
+				Boolean furnished = (Boolean)propertyJSON.get(PROPERTY_FURNISHED);
+				int id = ((Long)propertyJSON.get(PROPERTY_ID)).intValue();
 				String location = (String)propertyJSON.get(PROPERTY_LOCATION);
 				Boolean vacancy = (Boolean)propertyJSON.get(PROPERTY_VACANCY);
 				int price = ((Long)propertyJSON.get(PROPERTY_PRICE)).intValue();
@@ -66,7 +70,7 @@ public class DataLoader extends DataConstants  {
 				int vistaWS = ((Long)propertyJSON.get(PROPERTY_VISTAWS)).intValue();
 				int fpWS = ((Long)propertyJSON.get(PROPERTY_FPWS)).intValue();
 				int uscWS = ((Long)propertyJSON.get(PROPERTY_USCWS)).intValue();
-				properties.add(new Property(location, vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS));
+				properties.add(new Property(wifi, gym, furnished, id, location, vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS));
 			}
 			return properties;
 		}

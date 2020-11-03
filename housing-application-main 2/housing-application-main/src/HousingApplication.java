@@ -1,18 +1,18 @@
 
-import java.util.ArrayList;
-
-import org.json.simple.JSONObject; 
+import java.util.ArrayList; 
 
 
 public class HousingApplication {
 	private ArrayList<Tenant> tenants; 
 	private ArrayList<Owner> owners;
 	public ArrayList<Property> properties;
+	public ArrayList<User> people;
 	
 	public HousingApplication() {
 		tenants = Database.getTenants();
 		owners = Database.getOwners();
 		properties = Database.getInstance().getProperties();
+		people = Database.getUsers();
 	}
 	public Tenant loginTenant(String username, String password) {
 		for(Tenant t : tenants) {
@@ -40,6 +40,18 @@ public class HousingApplication {
 		}
 		return found;
 	}
+	public ArrayList<User> login(String userName, String password, Boolean owner){
+		ArrayList<User> found = new ArrayList<User>();
+		User user;
+		for(int i = 0; i < people.size(); i ++) {
+			user = people.get(i);
+			if(user.getUserName() == userName && user.getPassword()==password && user.getOwner()==owner) {
+				found.add(user);
+			}
+		}
+		return found;
+	}
+	
 	public void loadProperties(Property Property)
 	{
 		DataLoader.loadListings();
@@ -56,27 +68,8 @@ public class HousingApplication {
 			
 		}
 	}
-	public static void addProperty(String location, boolean vacancy, int price, int yearBuilt, int numBed, int numBath, boolean washerAndDryer, boolean pool, boolean parking, boolean pets, int vistaWS, int fpWS, int uscWS) {
+	public static void addProperty(String location, boolean Vacancy, int price, int yearBuilt, int numBed, int numBath, boolean washerAndDryer, boolean pool, boolean parking, boolean pets, int vistaWS, int fpWS, int uscWS) {
 		//Properties.addProperty(location, Vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS);
-		
-		
-		
-		JSONObject prop = new JSONObject();
-		
-		prop.put("address", location);
-		prop.put("vacancy", vacancy);
-		prop.put("price", price);
-		prop.put("yearBuild", yearBuilt);
-		prop.put("beds", numBed);
-		prop.put("baths", numBath);
-		prop.put("washAndDryer", washerAndDryer);
-		prop.put("pool", pool);
-		prop.put("parking", parking);
-		prop.put("pets", pets);
-		prop.put("vistaWS", vistaWS);
-		prop.put("fpWS", fpWS);
-		prop.put("uscWS", uscWS);
-		
 		System.out.println("Property manager has addded a new unit!");
 	}
 

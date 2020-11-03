@@ -2,8 +2,6 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import org.json.simple.JSONObject;
-
 public class HousingApplicationUI  {
 	private Scanner scanner;
 	private HousingApplication application;
@@ -25,7 +23,7 @@ public class HousingApplicationUI  {
 		boolean close = false;
 		while(!close) {
 			System.out.println();
-			
+			{
 				System.out.println("Welcome to the Team-OSCAR Housing Application!");
 				System.out.println("- You are currently operating as a Guest user");
 				System.out.println("**********************************************");
@@ -53,7 +51,7 @@ public class HousingApplicationUI  {
 					close = closeApp();
 					break;
 				}
-			
+			}
 			if(tenant == true) {	
 				displayMainMenuTenant(); 
 				int userCommand1 = getUserCommand(mainMenuOptionsTenant.length);
@@ -62,9 +60,7 @@ public class HousingApplicationUI  {
 				switch(userCommand1) {
 				case(0):
 					searchProperties();
-					System.out.println("Would you like to sign a lease for a property? (Type true if yes, and false if no)");
-					boolean lease = scanner.nextBoolean();
-					if(lease) signLease();
+					//signLease();
 					break;
 				case(1):
 					reviewProperty();
@@ -97,14 +93,9 @@ public class HousingApplicationUI  {
 					close = closeApp();
 					break;
 				}
-				}
-			//break;
+				}break;
 			}
 		}
-	private boolean closeApp() {
-		return true;
-	}
-	
 	private void displayMainMenu()
 	{
 		System.out.println("\nMain Menu:");
@@ -132,11 +123,13 @@ public class HousingApplicationUI  {
 	
 	private int getUserCommand(int numCommands) {
 		System.out.println("\nWhat option would you like to pick?: ");
-		//String input = scanner.nextLine();
-		//int command = Integer.parseInt(input)-1;
-		int command = scanner.nextInt()-1;
+		String input = scanner.nextLine();
+		int command = Integer.parseInt(input)-1;
 		if(command >= 0 && command <= numCommands -1) return command;
 		return -1;
+	}
+	private boolean closeApp() {
+		return true;
 	}
 	boolean owner;
 	boolean tenant;
@@ -157,17 +150,27 @@ public class HousingApplicationUI  {
 			String username = scanner.nextLine();
 			System.out.print("Password: ");
 			String password = scanner.nextLine();
-			currentUser = application.loginTenant(username, password);
+			//currentUser = application.loginTenant(username, password);
+			ArrayList<User> foundTenant = application.login(username, password, owner);
+			if(foundTenant!=null) {
+				currentUser = application.loginTenant(username, password);
+				System.out.println("Sucessfully logged in as: Tenant");
+			}
 			break;
 		case(2):
 			System.out.print("Username: ");
-			String usernameO = scanner.nextLine();
+			String username0 = scanner.nextLine();
 			System.out.print("Password: ");
-			String passwordO = scanner.nextLine();
-			currentUser = application.loginOwner(usernameO, passwordO);
+			String password0 = scanner.nextLine();
+			ArrayList<User> foundOwner = application.login(username0, password0, owner);
+			if(foundOwner!=null) {
+				currentUser = application.loginTenant(username0, password0);
+				System.out.println("Sucessfully logged in as: Owner");
+			}
 			break;
+			}
 		}
-	}
+
 	
 	private void searchProperties() {
 		System.out.print("Enter minimum price: ");
@@ -188,13 +191,16 @@ public class HousingApplicationUI  {
 		ArrayList<Property> found = application.searchProperties(minPrice, maxPrice, numBed, numBath, washerAndDryer, pool, pets);
 		
 		for(int i = 0; i < found.size(); i++) {
-			System.out.println("Apartment #" + i +": ");
+			System.out.println("Apartment ID: " + found.get(i).getID());
 			System.out.println("Address: " + found.get(i).getLocation());
-			System.out.println("Price: $" + found.get(i).getPrice());
+			System.out.println("Price/month: $" + found.get(i).getPrice());
 			System.out.println("Walk2Campus Score: " + found.get(i).getUscWS());
 			System.out.println("Pet Friendly: " + found.get(i).getPets());
 			System.out.println("Pool: "+ found.get(i).getPool());
 			System.out.println("Washer and Dryer: " + found.get(i).getWasherAndDryer());
+			System.out.println("Wifi: " + found.get(i).getWifi());
+			System.out.println("Gym: " + found.get(i).getGym());
+			System.out.println("Furnished: " + found.get(i).getFurnished());
 			System.out.println();
 		}
 		
@@ -212,7 +218,7 @@ public class HousingApplicationUI  {
 	
 	private void signLease() {
 		if(currentUser.getRegistered()) {
-			
+			System.out.println("Signing lease...");//TODO
 		}
 		else 
 			System.out.println("Please login before signing a lease");
@@ -223,7 +229,7 @@ public class HousingApplicationUI  {
 		System.out.print("Enter location: ");
 		String location = scanner.nextLine();
 		System.out.print("Enter Vancancy: ");
-		boolean vacancy = scanner.nextBoolean();
+		boolean Vacancy = scanner.nextBoolean();
 		System.out.print("Enter price: ");
 		int price  = scanner.nextInt();
 		System.out.print("Enter year built: ");
@@ -246,26 +252,7 @@ public class HousingApplicationUI  {
 		int fpWS = scanner.nextInt();
 		System.out.print("Enter USC walk score: ");
 		int uscWS = scanner.nextInt();
-		application.addProperty(location, vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS);
-		
-		JSONObject prop = new JSONObject();
-		
-		prop.put("address", location);
-		prop.put("vacancy", vacancy);
-		prop.put("price", price);
-		prop.put("yearBuild", yearBuilt);
-		prop.put("beds", numBed);
-		prop.put("baths", numBath);
-		prop.put("washAndDryer", washerAndDryer);
-		prop.put("pool", pool);
-		prop.put("parking", parking);
-		prop.put("pets", pets);
-		prop.put("vistaWS", vistaWS);
-		prop.put("fpWS", fpWS);
-		prop.put("uscWS", uscWS);
-		
-	
-		
+		application.addProperty(location, Vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS);
 	}
 	
 	

@@ -6,8 +6,8 @@
 		"password": "password",
 		"firstName": "Kiesha",
 		"lastName": "Michaels",
-		"registered": "false",
-		"owner": "false"
+		"registered": "true",
+		"owner": "true"
 	},
 	{
 		"id": 2,
@@ -16,7 +16,7 @@
 		"password": "password",
 		"firstName": "Kiesha",
 		"lastName": "Michaels",
-		"registered": "false",
+		"registered": "true",
 		"owner": "false"
 	},
 	{
@@ -26,7 +26,7 @@
 		"password": "password",
 		"firstName": "Kiesha",
 		"lastName": "Michaels",
-		"registered": "false",
+		"registered": "true",
 		"owner": "false"
 	}
 ]

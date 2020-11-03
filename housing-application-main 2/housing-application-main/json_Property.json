@@ -8,7 +8,7 @@
     "washAndDryer": true,
     "parking": true,
     "pets": true,
-    "vistaWS": 5,
+    "vistaWS": 2,
     "fpWS": 1,
     "uscWS": 1,
     "amenities": {},
@@ -16,7 +16,11 @@
     "beds": 1,
     "baths": 1,
     "pool": true
-    },
+    "wifi": true,
+    "gym": true,
+    "furnished": true
+    }
+
     {
     "id": 2,
     "address": "124 Apple Ave",
@@ -34,7 +38,10 @@
     "beds": 1,
     "baths": 1,
     "pool": true
-    },
+    "wifi": true,
+    "gym": true,
+    "furnished": true
+    }
     {
     "id": 3,
     "address": "125 Apple Ave",
@@ -44,7 +51,7 @@
     "washAndDryer": true,
     "parking": true,
     "pets": true,
-    "vistaWS": 2,
+    "vistaWS": 5,
     "fpWS": 1,
     "uscWS": 1,
     "amenities": {},
@@ -52,6 +59,9 @@
     "beds": 1,
     "baths": 1,
     "pool": true
+    "wifi": true,
+    "gym": true,
+    "furnished": true
     }
 
 ]

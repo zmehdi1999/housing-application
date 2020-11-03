@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class Property {
+	protected int id;
 	protected String location;
 	protected Boolean vacancy;
 	protected int price;
@@ -14,8 +15,15 @@ public class Property {
 	protected int vistaWS;
 	protected int fpWS;
 	protected int uscWS;
+	protected Boolean wifi; 
+	protected Boolean gym;
+	protected Boolean furnished;
 	
-	public Property(String location, Boolean vacancy, int price, int yearBuilt, int numBed, int numBath, Boolean washerAndDryer, Boolean pool, Boolean parking, Boolean pets, int vistaWS, int fpWS, int uscWS){
+	public Property(Boolean wifi, Boolean gym, Boolean furnished, int id, String location, Boolean vacancy, int price, int yearBuilt, int numBed, int numBath, Boolean washerAndDryer, Boolean pool, Boolean parking, Boolean pets, int vistaWS, int fpWS, int uscWS){
+		this.id = id;
+		this.wifi = wifi;
+		this.gym = gym;
+		this.furnished = furnished;
 		this.location = location;
 		this.vacancy = vacancy;
 		this.price = price;
@@ -24,7 +32,6 @@ public class Property {
 		this.numBath = numBath;
 		this.washerAndDryer = washerAndDryer;
 		this.pool = pool;
-		System.out.println(pool);
 		this.parking = parking;
 		this.pets = pets;
 		this.vistaWS = vistaWS;
@@ -42,6 +49,18 @@ public class Property {
 /////////////////	Getters	    ////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
+	public Boolean getWifi() {
+		return wifi;
+	}
+	public Boolean getGym() {
+		return gym;
+	}
+	public Boolean getFurnished() {
+		return furnished;
+	}
+	public int getID() {
+		return id;
+	}
 	public String getLocation() {
 		return location;
 	}
@@ -86,7 +105,19 @@ public class Property {
 /////////////////	Setters	    ////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
-	
+	public void setWifi() {
+		this.wifi = wifi;
+	}
+	public void setGym() {
+		this.gym = gym;
+	}
+	public void setFurnished() {
+		this.furnished= furnished;
+	}
+	public void setID(int id)
+	{
+		this.id = id;
+	}
 	public void setLocation(String location) {
 		this.location = location;
 	}
