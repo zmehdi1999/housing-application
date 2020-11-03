@@ -38,7 +38,7 @@ public class HousingApplicationUI  {
 				case(1):
 					searchProperties();
 					System.out.println("Would you like to sign a lease for a property? (Type true if yes, and false if no)");
-					boolean lease = scanner.nextBoolean();
+					Boolean lease = scanner.nextBoolean();
 					if(lease) signLease();
 					break;
 				case(2):
@@ -93,7 +93,7 @@ public class HousingApplicationUI  {
 					close = closeApp();
 					break;
 				}
-				}break;
+				}//break;
 			}
 		}
 	private void displayMainMenu()
@@ -123,8 +123,9 @@ public class HousingApplicationUI  {
 	
 	private int getUserCommand(int numCommands) {
 		System.out.println("\nWhat option would you like to pick?: ");
-		String input = scanner.nextLine();
-		int command = Integer.parseInt(input)-1;
+		//String input = scanner.nextLine();
+		//int command = Integer.parseInt(input)-1;
+		int command = scanner.nextInt()-1;
 		if(command >= 0 && command <= numCommands -1) return command;
 		return -1;
 	}
@@ -135,7 +136,8 @@ public class HousingApplicationUI  {
 	boolean tenant;
 	private void login() {
 		System.out.println("\nSign in as tenant(1) or owner(2)? ");
-		String input = scanner.nextLine();
+		//String input = scanner.nextLine();
+		/*
 		if(input.equalsIgnoreCase("1"))
 		{
 			tenant = true;
@@ -143,29 +145,39 @@ public class HousingApplicationUI  {
 		if(input.equalsIgnoreCase("2")) {
 			owner = true;
 		}
-		int command = Integer.parseInt(input);
+		*/
+		int command = scanner.nextInt();
+		System.out.print("Username: ");
+		String username = scanner.next();
+		String usernameO = username;
+		System.out.print("Password: ");
+		String password = scanner.next();
+		String passwordO = password;
 		switch(command) {
 		case(1):
-			System.out.print("Username: ");
-			String username = scanner.nextLine();
-			System.out.print("Password: ");
-			String password = scanner.nextLine();
-			//currentUser = application.loginTenant(username, password);
 			ArrayList<User> foundTenant = application.login(username, password, owner);
 			if(foundTenant!=null) {
 				currentUser = application.loginTenant(username, password);
-				System.out.println("Sucessfully logged in as: Tenant");
+				if(currentUser != null) {
+					tenant = true;
+					System.out.println("Sucessfully logged in as: Tenant");
+				}
+				else {
+					System.out.println("Log in not successful.");
+				}
 			}
 			break;
 		case(2):
-			System.out.print("Username: ");
-			String username0 = scanner.nextLine();
-			System.out.print("Password: ");
-			String password0 = scanner.nextLine();
-			ArrayList<User> foundOwner = application.login(username0, password0, owner);
+			ArrayList<User> foundOwner = application.login(usernameO, passwordO, owner);
 			if(foundOwner!=null) {
-				currentUser = application.loginTenant(username0, password0);
-				System.out.println("Sucessfully logged in as: Owner");
+				currentUser = application.loginTenant(usernameO, passwordO);
+				if(currentUser != null) {
+					owner = true;
+					System.out.println("Sucessfully logged in as: Owner");
+				}
+				else {
+					System.out.println("Log in not successful.");
+				}
 			}
 			break;
 			}
@@ -253,6 +265,7 @@ public class HousingApplicationUI  {
 		System.out.print("Enter USC walk score: ");
 		int uscWS = scanner.nextInt();
 		application.addProperty(location, Vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS);
+		System.out.println("Property manager has addded a new unit!");
 	}
 	
 	

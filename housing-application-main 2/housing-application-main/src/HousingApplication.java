@@ -18,9 +18,16 @@ public class HousingApplication {
 		properties = Database.getInstance().getProperties();
 		people = Database.getUsers();
 	}
-	public Tenant loginTenant(String username, String password) {
+	public User loginTenant(String username, String password) {
+		people = DataLoader.loadUsers();
+		/*
 		for(Tenant t : tenants) {
 			if(t.getUserName().equals(username) && t.getPassword().equals(password)) return t;
+		}
+		return null;
+		*/
+		for(User u : people) {
+			if(u.getUserName().equals(username) && u.getPassword().equals(password)) return u;
 		}
 		return null;
 	}
@@ -92,15 +99,12 @@ public class HousingApplication {
 		prop.put("fpWS", fpWS);
 		prop.put("uscWS", uscWS);
 		
-		
 		try(FileWriter file = new FileWriter(DataConstants.FILE)){
 			file.write(prop.toJSONString());
 			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		System.out.println("Property manager has addded a new unit!");
 	}
 
 }
