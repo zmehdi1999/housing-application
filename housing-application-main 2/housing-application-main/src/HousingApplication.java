@@ -75,10 +75,6 @@ public class HousingApplication {
 	
 	
 	public static void addProperty(String location, boolean vacancy, int price, int yearBuilt, int numBed, int numBath, boolean washerAndDryer, boolean pool, boolean parking, boolean pets, int vistaWS, int fpWS, int uscWS) {
-		//Properties.addProperty(location, Vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS);
-		
-		
-		
 		
 		JSONObject prop = new JSONObject();
 
