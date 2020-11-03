@@ -158,7 +158,7 @@ public class HousingApplicationUI  {
 			ArrayList<User> foundTenant = application.login(username, password, owner);
 			if(foundTenant!=null) {
 				currentUser = application.loginTenant(username, password);
-				if(currentUser != null) {
+				if(currentUser != null && !currentUser.getOwner()) {
 					tenant = true;
 					System.out.println("Sucessfully logged in as: Tenant");
 				}
@@ -171,7 +171,7 @@ public class HousingApplicationUI  {
 			ArrayList<User> foundOwner = application.login(usernameO, passwordO, owner);
 			if(foundOwner!=null) {
 				currentUser = application.loginTenant(usernameO, passwordO);
-				if(currentUser != null) {
+				if(currentUser != null && currentUser.getOwner()) {
 					owner = true;
 					System.out.println("Sucessfully logged in as: Owner");
 				}
