@@ -225,13 +225,25 @@ public class HousingApplicationUI  {
 		application.reviewProperty(property, review);
 	}
 	
+	private void ReadFile() {
+		Scanner input;
+		try {
+			input = new Scanner(new File("lease_agreement.txt"));
+			while(input.hasNextLine()) {
+				System.out.println(input.nextLine());
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+	}
 	private void signLease() {
 		if(owner == true || tenant == true) {
 			System.out.println("Signing lease...");//TODO
+			ReadFile();	
 		}
-		else 
+		else
 			System.out.println("Please login before signing a lease");
-			
 	}
 
 	public void addProperty() {
