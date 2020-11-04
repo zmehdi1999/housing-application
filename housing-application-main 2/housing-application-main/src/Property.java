@@ -105,13 +105,13 @@ public class Property {
 /////////////////	Setters	    ////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
-	public void setWifi() {
+	public void setWifi(Boolean wifi) {
 		this.wifi = wifi;
 	}
-	public void setGym() {
+	public void setGym(Boolean gym) {
 		this.gym = gym;
 	}
-	public void setFurnished() {
+	public void setFurnished(Boolean furnished) {
 		this.furnished= furnished;
 	}
 	public void setID(int id)
@@ -163,12 +163,12 @@ public class Property {
 	public ArrayList<String> userReviews;
 	public ArrayList<String> landlordReviews;
 	//end of class
-	public static Property getInstance() {
+	/*public static Property getInstance() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	public void getProperties()
 	{
 		//TODO 
-	}
+	}*/
 }

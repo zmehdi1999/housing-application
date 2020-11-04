@@ -27,23 +27,12 @@ public class DataLoader extends DataConstants  {
 				String userName = (String)userJSON.get(USER_USER_NAME);
 				String email = (String)userJSON.get(USER_EMAIL);
 				String password = (String)userJSON.get(USER_PASSWORD);
-				//int phoneNum = (int)userJSON.get(USER_PHONE_NUM);
-				//Boolean registered = (Boolean)userJSON.get(USER_REGISTERED);
-				//Boolean owner = (Boolean)userJSON.get(USER_OWNER);
-				//int rating = (int)userJSON.get(USER_RATING);
-				String registered = (String)userJSON.get(USER_REGISTERED);
-				String owner = (String)userJSON.get(USER_OWNER);
-				boolean r;
-				if(registered.equals("true")) 
-					r = true;
-				else
-					r = false;
-				boolean o;
-				if(owner.equals("true")) 
-					o = true;
-				else
-					o = false;
-				users.add(new User(firstName, lastName, userName, email, password, 000, r, o, 0));
+				int phoneNum = (int)userJSON.get(USER_PHONE_NUM);
+				Boolean registered = (Boolean)userJSON.get(USER_REGISTERED);
+				Boolean owner = (Boolean)userJSON.get(USER_OWNER);
+				int rating = (int)userJSON.get(USER_RATING);
+				
+				users.add(new User(firstName, lastName, userName, email, password, phoneNum, registered, owner, rating));
 			}
 			return users;
 			

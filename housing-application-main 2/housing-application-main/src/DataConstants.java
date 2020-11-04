@@ -1,5 +1,5 @@
 
-public class DataConstants {
+public abstract class DataConstants {
 
 	//File & Constants for User
 	protected static final String FILE = "json_User.json";

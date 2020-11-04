@@ -1,9 +1,8 @@
-
 import java.io.FileWriter;
 import java.io.IOException;
+import org.json.simple.JSONObject;
 import java.util.ArrayList;
-
-import org.json.simple.JSONObject; 
+import java.util.List; 
 
 
 public class HousingApplication {
@@ -18,16 +17,9 @@ public class HousingApplication {
 		properties = Database.getInstance().getProperties();
 		people = Database.getUsers();
 	}
-	public User loginTenant(String username, String password) {
-		people = DataLoader.loadUsers();
-		/*
+	public Tenant loginTenant(String username, String password) {
 		for(Tenant t : tenants) {
 			if(t.getUserName().equals(username) && t.getPassword().equals(password)) return t;
-		}
-		return null;
-		*/
-		for(User u : people) {
-			if(u.getUserName().equals(username) && u.getPassword().equals(password)) return u;
 		}
 		return null;
 	}
@@ -79,12 +71,15 @@ public class HousingApplication {
 			
 		}
 	}
-	
-	
-	public static void addProperty(String location, boolean vacancy, int price, int yearBuilt, int numBed, int numBath, boolean washerAndDryer, boolean pool, boolean parking, boolean pets, int vistaWS, int fpWS, int uscWS) {
+
+	public void addProperty(Boolean wifi,Boolean gym, Boolean furnished, int id, String location, Boolean vacancy, int price, int yearBuilt, int numBed, int numBath, Boolean washerAndDryer, Boolean pool, Boolean parking, Boolean pets, int vistaWS, int fpWS, int uscWS) {
 		
 		JSONObject prop = new JSONObject();
-
+		
+		prop.put("wifi", wifi);
+		prop.put("gym", gym);
+		prop.put("furnished", furnished);
+		prop.put("id", id);
 		prop.put("address", location);
 		prop.put("vacancy", vacancy);
 		prop.put("price", price);
@@ -98,15 +93,18 @@ public class HousingApplication {
 		prop.put("vistaWS", vistaWS);
 		prop.put("fpWS", fpWS);
 		prop.put("uscWS", uscWS);
+	
 		
 		try(FileWriter file = new FileWriter(DataConstants.PROPERTY_FILE)){
-			file.write(prop.toJSONString());
+		file.write(prop.toJSONString());
 			
 		} catch (IOException e) {
 			e.printStackTrace();
+			
 		}
+		
+		System.out.println("Property manager has addded a new unit!");
 	}
-	
 	public User createAccount(String firstName, String lastName, String userName, String email, String password, int phoneNum, boolean registered, boolean owner) {
 		JSONObject user = new JSONObject();
 		User newUser;
@@ -133,5 +131,5 @@ public class HousingApplication {
 		
 		return newUser;
 	}
-
+	
 }

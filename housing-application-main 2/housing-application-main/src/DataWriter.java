@@ -6,7 +6,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;	
 
 public class DataWriter extends DataConstants {
-	
+//Users Data	
 	public static void savePeople() {
 		People people = People.getInstance();
 		ArrayList<User> rand = people.getPeople();
@@ -22,9 +22,24 @@ public class DataWriter extends DataConstants {
 	}
 	catch(IOException e) {
 		e.printStackTrace();
-	 }
-      }
+	}
+    }
 	
+  	public static JSONObject getUsersJSON(User users) {
+		JSONObject usersDetails = new JSONObject();
+		usersDetails.put(USER_FIRST_NAME, users.getFirstName());
+		usersDetails.put(USER_LAST_NAME, users.getLastName());
+		usersDetails.put(USER_USER_NAME, users.getUserName());
+		usersDetails.put(USER_EMAIL, users.getEmail());
+		usersDetails.put(USER_PASSWORD,users.getPassword());
+		usersDetails.put(USER_PHONE_NUM,users.getPhoneNum());
+		usersDetails.put(USER_REGISTERED,users.getRegistered());
+		usersDetails.put(USER_OWNER,users.getOwner());
+		usersDetails.put(USER_RATING,users.getRating());
+		
+   	 return usersDetails;
+	}
+  //Properties Data	
 	public static void saveProperties() {
 		Properties properties = Properties.getInstance();
 		ArrayList<Property> rand = properties.getProperties();
@@ -41,26 +56,10 @@ public class DataWriter extends DataConstants {
 	catch(IOException e) {
 		e.printStackTrace();
 	 }
-      }
-
+     }
  			
-  	public static JSONObject getUsersJSON(User users) {
-		JSONObject usersDetails = new JSONObject();
-		usersDetails.put(USER_FIRST_NAME, users.getFirstName());
-		usersDetails.put(USER_LAST_NAME, users.getLastName());
-		usersDetails.put(USER_USER_NAME, users.getUserName());
-		usersDetails.put(USER_EMAIL, users.getEmail());
-		usersDetails.put(USER_PASSWORD,users.getPassword());
-		usersDetails.put(USER_PHONE_NUM,users.getPhoneNum());
-		usersDetails.put(USER_REGISTERED,users.getRegistered());
-		usersDetails.put(USER_OWNER,users.getOwner());
-		usersDetails.put(USER_RATING,users.getRating());
-   
-   	 return usersDetails;
-	}
   	public static JSONObject getPropertiesJSON(Property properties)
   	{
-  		
   		JSONObject propertyDetails = new JSONObject();
   		propertyDetails.put(PROPERTY_ID, properties.getID());
   		propertyDetails.put(PROPERTY_LOCATION, properties.getLocation());
@@ -76,7 +75,8 @@ public class DataWriter extends DataConstants {
   		propertyDetails.put(PROPERTY_VISTAWS, properties.getVistaWS());
   		propertyDetails.put(PROPERTY_FPWS, properties.getFPWS());
   		propertyDetails.put(PROPERTY_USCWS, properties.getUscWS());
-  	
+  		
   		return propertyDetails;
+  		
   	}
 }

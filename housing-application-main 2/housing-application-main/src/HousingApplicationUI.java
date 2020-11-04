@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class HousingApplicationUI  {
 	private Scanner scanner;
 	private HousingApplication application;
-	private String[] mainMenuOptions = {"Login", "Search Properties","Review Property","Sign Lease","Close Application"};
+	private String[] mainMenuOptions = {"Login","Create Account", "Search Properties","Review Property","Sign Lease","Close Application"};
 	private String[] mainMenuOptionsTenant = {"Search Properties","Review Property","Sign Lease","Close Application"};
 	private String[] mainMenuOptionsOwner = {"Add Property", "Rate Tenant","Sign Lease","Close Application"};
 	private User currentUser = new User("guest", "user", "guestuser", "guestuser@gmail.com", "guest", 555555555, false, false, 0);
@@ -36,20 +36,24 @@ public class HousingApplicationUI  {
 					login();
 					break;
 				case(1):
-					searchProperties();
-					System.out.println("Would you like to sign a lease for a property? (Type true if yes, and false if no)");
-					Boolean lease = scanner.nextBoolean();
-					if(lease) signLease();
+					createAccount();
 					break;
 				case(2):
-					reviewProperty();
+					searchProperties();
+					System.out.println("Would you like to sign a lease for a property? (Type true if yes, and false if no)");
+					boolean lease = scanner.nextBoolean();
+					if(lease) signLease();
 					break;
 				case(3):
-					signLease();
+					reviewProperty();
 					break;
 				case(4):
+					signLease();
+					break;
+				case(5):
 					close = closeApp();
 					break;
+				
 				}
 			}
 			if(tenant == true) {	
@@ -60,7 +64,9 @@ public class HousingApplicationUI  {
 				switch(userCommand1) {
 				case(0):
 					searchProperties();
-					//signLease();
+					System.out.println("Would you like to sign a lease for a property? (Type true if yes, and false if no)");
+					boolean lease = scanner.nextBoolean();
+					if(lease) signLease();
 					break;
 				case(1):
 					reviewProperty();
@@ -88,12 +94,15 @@ public class HousingApplicationUI  {
 					break;
 				case(2):
 					signLease();
+					System.out.println("Would you like to sign a lease for a property? (Type true if yes, and false if no)");
+					boolean lease = scanner.nextBoolean();
+					if(lease) signLease();
 					break;
 				case(3):
 					close = closeApp();
 					break;
 				}
-				}//break;
+				}break;
 			}
 		}
 	private void displayMainMenu()
@@ -123,9 +132,8 @@ public class HousingApplicationUI  {
 	
 	private int getUserCommand(int numCommands) {
 		System.out.println("\nWhat option would you like to pick?: ");
-		//String input = scanner.nextLine();
-		//int command = Integer.parseInt(input)-1;
-		int command = scanner.nextInt()-1;
+		String input = scanner.nextLine();
+		int command = Integer.parseInt(input)-1;
 		if(command >= 0 && command <= numCommands -1) return command;
 		return -1;
 	}
@@ -136,8 +144,7 @@ public class HousingApplicationUI  {
 	boolean tenant;
 	private void login() {
 		System.out.println("\nSign in as tenant(1) or owner(2)? ");
-		//String input = scanner.nextLine();
-		/*
+		String input = scanner.nextLine();
 		if(input.equalsIgnoreCase("1"))
 		{
 			tenant = true;
@@ -145,39 +152,29 @@ public class HousingApplicationUI  {
 		if(input.equalsIgnoreCase("2")) {
 			owner = true;
 		}
-		*/
-		int command = scanner.nextInt();
-		System.out.print("Username: ");
-		String username = scanner.next();
-		String usernameO = username;
-		System.out.print("Password: ");
-		String password = scanner.next();
-		String passwordO = password;
+		int command = Integer.parseInt(input);
 		switch(command) {
 		case(1):
+			System.out.print("Username: ");
+			String username = scanner.nextLine();
+			System.out.print("Password: ");
+			String password = scanner.nextLine();
+			//currentUser = application.loginTenant(username, password);
 			ArrayList<User> foundTenant = application.login(username, password, owner);
 			if(foundTenant!=null) {
 				currentUser = application.loginTenant(username, password);
-				if(currentUser != null && !currentUser.getOwner()) {
-					tenant = true;
-					System.out.println("Sucessfully logged in as: Tenant");
-				}
-				else {
-					System.out.println("Log in not successful.");
-				}
+				System.out.println("Sucessfully logged in as: Tenant");
 			}
 			break;
 		case(2):
-			ArrayList<User> foundOwner = application.login(usernameO, passwordO, owner);
+			System.out.print("Username: ");
+			String username0 = scanner.nextLine();
+			System.out.print("Password: ");
+			String password0 = scanner.nextLine();
+			ArrayList<User> foundOwner = application.login(username0, password0, owner);
 			if(foundOwner!=null) {
-				currentUser = application.loginTenant(usernameO, passwordO);
-				if(currentUser != null && currentUser.getOwner()) {
-					owner = true;
-					System.out.println("Sucessfully logged in as: Owner");
-				}
-				else {
-					System.out.println("Log in not successful.");
-				}
+				currentUser = application.loginTenant(username0, password0);
+				System.out.println("Sucessfully logged in as: Owner");
 			}
 			break;
 			}
@@ -229,7 +226,7 @@ public class HousingApplicationUI  {
 	}
 	
 	private void signLease() {
-		if(currentUser.getRegistered()) {
+		if(owner == true || tenant == true) {
 			System.out.println("Signing lease...");//TODO
 		}
 		else 
@@ -238,34 +235,43 @@ public class HousingApplicationUI  {
 	}
 
 	public void addProperty() {
-		System.out.print("Enter location: ");
+		
+		System.out.println("Enter location: ");
 		String location = scanner.nextLine();
-		System.out.print("Enter Vancancy: ");
-		boolean Vacancy = scanner.nextBoolean();
-		System.out.print("Enter price: ");
+		System.out.println("Enter unique numeric ID");
+		int id = scanner.nextInt();
+		System.out.println("Enter price: ");
 		int price  = scanner.nextInt();
-		System.out.print("Enter year built: ");
-		int yearBuilt = scanner.nextInt();
-		System.out.print("Enter number of bedrooms: ");
-		int numBed  = scanner.nextInt();
-		System.out.print("Enter number of bathrooms: ");
-		int numBath  = scanner.nextInt();
-		System.out.print("Enter 'true' for if it has a washer and dryer or enter 'false' otherwise: ");
-		boolean washerAndDryer = scanner.nextBoolean();
-		System.out.print("Enter 'true' for if it has a pool or enter 'false' otherwise: ");
-		boolean pool = scanner.nextBoolean();
-		System.out.print("Enter 'true' for if it has a parking or enter 'false' otherwise: ");
-		boolean parking = scanner.nextBoolean();
-		System.out.print("Enter 'true' for if it is pet friendly location or enter 'false' otherwise: ");
-		boolean pets = scanner.nextBoolean();
-		System.out.print("Enter vista walk score: ");
+		System.out.println("Enter vista walk score: ");
 		int vistaWS = scanner.nextInt();
-		System.out.print("Enter five points walk score: ");
+		System.out.println("Enter five points walk score: ");
 		int fpWS = scanner.nextInt();
-		System.out.print("Enter USC walk score: ");
+		System.out.println("Enter USC walk score: ");
 		int uscWS = scanner.nextInt();
-		application.addProperty(location, Vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS);
-		System.out.println("Property manager has addded a new unit!");
+		System.out.println("Enter year built: ");
+		int yearBuilt = scanner.nextInt();
+		System.out.println("Enter number of bedrooms: ");
+		int numBed  = scanner.nextInt();
+		System.out.println("Enter number of bathrooms: ");
+		int numBath  = scanner.nextInt();
+		System.out.println("Enter vacancy: ");
+		Boolean vacancy = scanner.nextBoolean();
+		System.out.println("Enter 'true' for if it has a washer and dryer or enter 'false' otherwise: ");
+		Boolean washerAndDryer = scanner.nextBoolean();
+		System.out.println("Enter 'true' for if it has a pool or enter 'false' otherwise: ");
+		Boolean pool = scanner.nextBoolean();
+		System.out.println("Enter 'true' for if it has a parking or enter 'false' otherwise: ");
+		Boolean parking = scanner.nextBoolean();
+		System.out.println("Enter 'true' for if it is pet friendly location or enter 'false' otherwise: ");
+		Boolean pets = scanner.nextBoolean();
+		System.out.println("Enter 'true' for Wifi or enter 'false' otherwise: ");
+		Boolean wifi = scanner.nextBoolean();
+		System.out.println("Enter 'true' for gym or enter 'false' otherwise: ");
+		Boolean gym = scanner.nextBoolean();
+		System.out.println("Enter 'true' for if it is furnished or enter 'false' otherwise: ");
+		Boolean furnished = scanner.nextBoolean();
+		
+		application.addProperty(wifi, gym, furnished, id, location, vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS);
 	}
 	
 	private void createAccount() {
