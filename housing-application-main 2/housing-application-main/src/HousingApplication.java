@@ -1,5 +1,7 @@
 import java.io.FileWriter;
 import java.io.IOException;
+
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import java.util.ArrayList;
 import java.util.List; 
@@ -75,6 +77,7 @@ public class HousingApplication {
 	public void addProperty(Boolean wifi,Boolean gym, Boolean furnished, int id, String location, Boolean vacancy, int price, int yearBuilt, int numBed, int numBath, Boolean washerAndDryer, Boolean pool, Boolean parking, Boolean pets, int vistaWS, int fpWS, int uscWS) {
 		
 		JSONObject prop = new JSONObject();
+		JSONArray array = new JSONArray();
 		
 		prop.put("wifi", wifi);
 		prop.put("gym", gym);
@@ -93,10 +96,10 @@ public class HousingApplication {
 		prop.put("vistaWS", vistaWS);
 		prop.put("fpWS", fpWS);
 		prop.put("uscWS", uscWS);
-	
+		array.add(prop);
 		
 		try(FileWriter file = new FileWriter(DataConstants.PROPERTY_FILE)){
-		file.write(prop.toJSONString());
+		file.write(array.toJSONString());
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -104,6 +107,7 @@ public class HousingApplication {
 		}
 		
 		System.out.println("Property manager has addded a new unit!");
+		System.out.println(array);
 	}
 	public User createAccount(String firstName, String lastName, String userName, String email, String password, int phoneNum, boolean registered, boolean owner) {
 		JSONObject user = new JSONObject();

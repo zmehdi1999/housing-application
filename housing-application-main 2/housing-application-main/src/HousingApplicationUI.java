@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -88,6 +90,10 @@ public class HousingApplicationUI  {
 				switch(useCommand) {
 				case(0):
 					addProperty();
+					System.out.println("Would you like to add another property? (Type true if yes, and false if no)");
+					boolean yes = scanner.nextBoolean();
+					if(yes) { addProperty();
+					}
 					break;
 				case(1):
 					rateTenant();
@@ -102,9 +108,10 @@ public class HousingApplicationUI  {
 					close = closeApp();
 					break;
 				}
-				}break;
+				}
 			}
 		}
+	
 	private void displayMainMenu()
 	{
 		System.out.println("\nMain Menu:");
@@ -132,8 +139,8 @@ public class HousingApplicationUI  {
 	
 	private int getUserCommand(int numCommands) {
 		System.out.println("\nWhat option would you like to pick?: ");
-		String input = scanner.nextLine();
-		int command = Integer.parseInt(input)-1;
+		int command = scanner.nextInt()-1;
+		
 		if(command >= 0 && command <= numCommands -1) return command;
 		return -1;
 	}
@@ -144,21 +151,21 @@ public class HousingApplicationUI  {
 	boolean tenant;
 	private void login() {
 		System.out.println("\nSign in as tenant(1) or owner(2)? ");
-		String input = scanner.nextLine();
-		if(input.equalsIgnoreCase("1"))
+		int input = scanner.nextInt();
+		if(input == 1)
 		{
 			tenant = true;
 		}
-		if(input.equalsIgnoreCase("2")) {
+		if(input == 2){
 			owner = true;
 		}
-		int command = Integer.parseInt(input);
+		int command = input;
 		switch(command) {
 		case(1):
 			System.out.print("Username: ");
-			String username = scanner.nextLine();
+			String username = scanner.next();
 			System.out.print("Password: ");
-			String password = scanner.nextLine();
+			String password = scanner.next();
 			//currentUser = application.loginTenant(username, password);
 			ArrayList<User> foundTenant = application.login(username, password, owner);
 			if(foundTenant!=null) {
@@ -225,6 +232,45 @@ public class HousingApplicationUI  {
 		application.reviewProperty(property, review);
 	}
 	
+
+	public void addProperty() {
+		System.out.println("Enter unique numeric ID:");
+		int id = scanner.nextInt();
+		System.out.println("Enter price: ");
+		int price  = scanner.nextInt();
+		System.out.println("Enter vista walk score: ");
+		int vistaWS = scanner.nextInt();
+		System.out.println("Enter five points walk score: ");
+		int fpWS = scanner.nextInt();
+		System.out.println("Enter USC walk score: ");
+		int uscWS = scanner.nextInt();
+		System.out.println("Enter year built: ");
+		int yearBuilt = scanner.nextInt();
+		System.out.println("Enter number of bedrooms: ");
+		int numBed  = scanner.nextInt();
+		System.out.println("Enter number of bathrooms: ");
+		int numBath  = scanner.nextInt();
+		System.out.println("Enter location:");
+		String location = scanner.next();
+		System.out.println("Enter vacancy: ");
+		Boolean vacancy = scanner.nextBoolean();
+		System.out.println("Enter 'true' for if it has a washer and dryer or enter 'false' otherwise: ");
+		Boolean washerAndDryer = scanner.nextBoolean();
+		System.out.println("Enter 'true' for if it has a pool or enter 'false' otherwise: ");
+		Boolean pool = scanner.nextBoolean();
+		System.out.println("Enter 'true' for if it has a parking or enter 'false' otherwise: ");
+		Boolean parking = scanner.nextBoolean();
+		System.out.println("Enter 'true' for if it is pet friendly location or enter 'false' otherwise: ");
+		Boolean pets = scanner.nextBoolean();
+		System.out.println("Enter 'true' for Wifi or enter 'false' otherwise: ");
+		Boolean wifi = scanner.nextBoolean();
+		System.out.println("Enter 'true' for gym or enter 'false' otherwise: ");
+		Boolean gym = scanner.nextBoolean();
+		System.out.println("Enter 'true' for if it is furnished or enter 'false' otherwise: ");
+		Boolean furnished = scanner.nextBoolean();
+		
+		application.addProperty(wifi, gym, furnished, id, location, vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS);
+	}
 	private void ReadFile() {
 		Scanner input;
 		try {
@@ -245,46 +291,6 @@ public class HousingApplicationUI  {
 		else
 			System.out.println("Please login before signing a lease");
 	}
-
-	public void addProperty() {
-		
-		System.out.println("Enter location: ");
-		String location = scanner.nextLine();
-		System.out.println("Enter unique numeric ID");
-		int id = scanner.nextInt();
-		System.out.println("Enter price: ");
-		int price  = scanner.nextInt();
-		System.out.println("Enter vista walk score: ");
-		int vistaWS = scanner.nextInt();
-		System.out.println("Enter five points walk score: ");
-		int fpWS = scanner.nextInt();
-		System.out.println("Enter USC walk score: ");
-		int uscWS = scanner.nextInt();
-		System.out.println("Enter year built: ");
-		int yearBuilt = scanner.nextInt();
-		System.out.println("Enter number of bedrooms: ");
-		int numBed  = scanner.nextInt();
-		System.out.println("Enter number of bathrooms: ");
-		int numBath  = scanner.nextInt();
-		System.out.println("Enter vacancy: ");
-		Boolean vacancy = scanner.nextBoolean();
-		System.out.println("Enter 'true' for if it has a washer and dryer or enter 'false' otherwise: ");
-		Boolean washerAndDryer = scanner.nextBoolean();
-		System.out.println("Enter 'true' for if it has a pool or enter 'false' otherwise: ");
-		Boolean pool = scanner.nextBoolean();
-		System.out.println("Enter 'true' for if it has a parking or enter 'false' otherwise: ");
-		Boolean parking = scanner.nextBoolean();
-		System.out.println("Enter 'true' for if it is pet friendly location or enter 'false' otherwise: ");
-		Boolean pets = scanner.nextBoolean();
-		System.out.println("Enter 'true' for Wifi or enter 'false' otherwise: ");
-		Boolean wifi = scanner.nextBoolean();
-		System.out.println("Enter 'true' for gym or enter 'false' otherwise: ");
-		Boolean gym = scanner.nextBoolean();
-		System.out.println("Enter 'true' for if it is furnished or enter 'false' otherwise: ");
-		Boolean furnished = scanner.nextBoolean();
-		
-		application.addProperty(wifi, gym, furnished, id, location, vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS);
-	}
 	
 	private void createAccount() {
 		System.out.print("Username: ");
@@ -299,7 +305,7 @@ public class HousingApplicationUI  {
 		String lastName = scanner.next();
 		boolean registered = true;
 		System.out.print("Owner(type 'true') or tenant(type 'false')?"); 
-		boolean owner = scanner.nextBoolean();
+		owner = scanner.nextBoolean();
 		currentUser = application.createAccount(firstName, lastName, userName, email, password, 00000, registered, owner); 
 	}
 	

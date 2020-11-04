@@ -43,14 +43,14 @@ public class DataWriter extends DataConstants {
 	public static void saveProperties() {
 		Properties properties = Properties.getInstance();
 		ArrayList<Property> rand = properties.getProperties();
-		JSONArray jsonRand = new JSONArray();
+		JSONArray array = new JSONArray();
 		
 		for(int i = 0; i < rand.size(); i++){
-			jsonRand.add(getPropertiesJSON(rand.get(i)));
+			array.add(getPropertiesJSON(rand.get(i)));
 		}
 		
   	try(FileWriter file = new FileWriter(PROPERTY_FILE)){
-		file.write(jsonRand.toJSONString());
+		file.write(array.toJSONString());
 		file.flush();
 	}
 	catch(IOException e) {
@@ -60,6 +60,7 @@ public class DataWriter extends DataConstants {
  			
   	public static JSONObject getPropertiesJSON(Property properties)
   	{
+  		JSONArray array = new JSONArray();
   		JSONObject propertyDetails = new JSONObject();
   		propertyDetails.put(PROPERTY_ID, properties.getID());
   		propertyDetails.put(PROPERTY_LOCATION, properties.getLocation());
@@ -75,7 +76,7 @@ public class DataWriter extends DataConstants {
   		propertyDetails.put(PROPERTY_VISTAWS, properties.getVistaWS());
   		propertyDetails.put(PROPERTY_FPWS, properties.getFPWS());
   		propertyDetails.put(PROPERTY_USCWS, properties.getUscWS());
-  		
+  		array.add(propertyDetails);
   		return propertyDetails;
   		
   	}
