@@ -27,7 +27,42 @@ class HousingApplicationTest {
 	
 	@Test
 	void testLoginTenant() {
-		
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	void testLoginOwner() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	void testSearchProperties() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	void testLogin() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	void testLoadProperties() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	void testReviewProperties() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	void testAddProperty() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	void testCreateAccount() {
+		fail("Not yet implemented");
 	}
 	
 	@Test
