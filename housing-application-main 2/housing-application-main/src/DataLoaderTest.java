@@ -18,20 +18,22 @@ class DataLoaderTest {
 		DataWriter.savePeople();
 	}
 	
+	@Test
+	void testGetUsersSize() {
+		userList = DataLoader.getUsers();
+		assertEquals(2,userList.size());
+	}
+		
+	@Test
+	void testGetUsersSizeZero() {
+		users.getInstance().getUsers().clear();
+		DataWriter.saveUsers();
+		assertEquals(0, userList.size());
+	}
 	@AfterEach
 	public void tearDown() {
 		People.getInstance().getPeople().clear();
 		DataWriter.savePeople();
-	}
-	
-	@Test
-	void testLoadUsers() {
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	void testLoadListings() {
-		fail("Not yet implemented");
 	}
 	
 	@Test
