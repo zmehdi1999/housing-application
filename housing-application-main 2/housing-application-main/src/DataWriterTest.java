@@ -80,7 +80,7 @@ class DataWriterTest {
 		DataWriter.saveProperties();
 		assertEquals("123 Street St.", DataLoader.loadListings().get(0).getLocation());
 	}
-	
+	//test
 	@Test
 	void testSaveThreeProperties() {
 		propertyList.add(new Property(true, true, true, 23, "123 Street St.", true, 100, 2000, 1, 1, true, true, true, true, 1, 2, 3));
