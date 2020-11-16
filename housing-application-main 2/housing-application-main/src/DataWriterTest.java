@@ -19,12 +19,16 @@ class DataWriterTest {
 	public void setup() {
 		People.getInstance().getPeople().clear();
 		DataWriter.savePeople();
+		Properties.getInstance().getProperties().clear();
+		DataWriter.saveProperties();
 	}
 	
 	@AfterEach
 	public void tearDown() {
 		People.getInstance().getPeople().clear();
 		DataWriter.savePeople();
+		Properties.getInstance().getProperties().clear();
+		DataWriter.saveProperties();
 	}
 	
 	@Test
@@ -60,7 +64,7 @@ class DataWriterTest {
 	void testSaveNullPeople() {
 		userList.add(new User("", "", null, "", "", 0, false, false, 0));
 		DataWriter.savePeople();
-		assertEquals("", DataLoader.loadUsers().get(0).getUserName());
+		assertEquals(null, DataLoader.loadUsers().get(0).getUserName());
 	}
 	
 	@Test
