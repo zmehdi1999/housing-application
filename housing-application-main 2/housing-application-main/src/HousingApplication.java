@@ -62,12 +62,6 @@ public class HousingApplication {
 		DataLoader.loadListings();
 	}
 	
-	public void reviewProperty(String property, String review) {
-		for(Property p : properties) {
-			if(p.getLocation().equals(property)) p.userReviews.add(review);
-		}
-	}
-	
 	public void signLease(Property property) {
 		for(Property p : properties) {
 			

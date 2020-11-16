@@ -18,8 +18,10 @@ class HousingApplicationTest {
 	@BeforeEach
 	public void setup() {
 		People.getInstance().getPeople().clear();
+		userList.add(new User("Emily", "Smith", "esmith", "esmith@gmail.com", "12345", 0, true, false, 0));
 		DataWriter.savePeople();
 		Properties.getInstance().getProperties().clear();
+		propertyList.add(new Property(true, true, true, 23, "123 Street St.", true, 100, 2000, 1, 1, true, true, true, true, 1, 2, 3));
 		DataWriter.saveProperties();
 	}
 	
@@ -32,49 +34,37 @@ class HousingApplicationTest {
 	}
 	
 	@Test
-	void testLoginTenant() {
-		
-	}
-	
-	@Test
-	void testLoginOwner() {
-		
-	}
-	
-	@Test
 	void testSearchProperties() {
-		propertyList.addAll(app.searchProperties(0, 99999, 1, 1, true, true, true));
-		
+		propertyList.addAll(app.searchProperties(0, 0, 1, 1, true, true, true));
+		assertEquals(0,propertyList.size());
 	}
 	
 	@Test
 	void testLogin() {
-		fail("Not yet implemented");
+		ArrayList<User> login = app.login("esmith", "12345", false);
+		assertEquals(userList.get(0).getUserName() ,login.get(0).getUserName());
 	}
 	
+	
+	/*
 	@Test
 	void testLoadProperties() {
 		fail("Not yet implemented");
 	}
-	
-	@Test
-	void testReviewProperties() {
-		fail("Not yet implemented");
-	}
+	*/
 	
 	@Test
 	void testAddProperty() {
-		fail("Not yet implemented");
+		app.addProperty(true, true, true, 2, "123 Lane Ln.", true, 500, 2000, 2, 2, true, true, true, true, 1, 2, 3);
+		propertyList = DataLoader.loadListings();
+		assertEquals("123 Lane Ln.",propertyList.get(1).getLocation());
 	}
 	
 	@Test
 	void testCreateAccount() {
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	void test() {
-		fail("Not yet implemented");
+		User user = app.createAccount("Emily", "Smith", "esmith", "esmith@gmail.com", "12345", 0, true, false);
+		userList = DataLoader.loadUsers();
+		assertEquals(user, userList.get(0));
 	}
 
 }
