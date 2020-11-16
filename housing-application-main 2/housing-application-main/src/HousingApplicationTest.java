@@ -12,17 +12,23 @@ class HousingApplicationTest {
 	private HousingApplication app = new HousingApplication();
 	private People people = People.getInstance();
 	private ArrayList<User> userList = people.getPeople();
+	private Properties properties = Properties.getInstance();
+	private ArrayList<Property> propertyList = properties.getProperties();
 	
 	@BeforeEach
 	public void setup() {
 		People.getInstance().getPeople().clear();
 		DataWriter.savePeople();
+		Properties.getInstance().getProperties().clear();
+		DataWriter.saveProperties();
 	}
 	
 	@AfterEach
 	public void tearDown() {
 		People.getInstance().getPeople().clear();
 		DataWriter.savePeople();
+		Properties.getInstance().getProperties().clear();
+		DataWriter.saveProperties();
 	}
 	
 	@Test
