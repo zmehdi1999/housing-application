@@ -69,7 +69,7 @@ public class DataLoader extends DataConstants  {
 				int id = ((Long)propertyJSON.get(PROPERTY_ID)).intValue();
 				String location = (String)propertyJSON.get(PROPERTY_LOCATION);
 				Boolean vacancy = (Boolean)propertyJSON.get(PROPERTY_VACANCY);
-				double price = ((Long) propertyJSON.get(PROPERTY_PRICE)).doubleValue();
+				double price = (double)propertyJSON.get(PROPERTY_PRICE);
 				//int yearBuilt = ((Long)propertyJSON.get(PROPERTY_YEARBUILT)).intValue();
 				int yearBuilt = ((Long) propertyJSON.get(PROPERTY_YEARBUILT)).intValue();
 				int numBed = ((Long)propertyJSON.get(PROPERTY_NUMBED)).intValue();
