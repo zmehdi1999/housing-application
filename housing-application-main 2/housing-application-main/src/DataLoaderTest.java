@@ -25,6 +25,16 @@ class DataLoaderTest {
 	}
 	
 	@Test
+	void testLoadUsers() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	void testLoadListings() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
 	void test() {
 		fail("Not yet implemented");
 	}

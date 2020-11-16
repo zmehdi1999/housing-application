@@ -4,7 +4,7 @@ public class Property {
 	protected int id;
 	protected String location;
 	protected Boolean vacancy;
-	protected int price;
+	protected double price;
 	protected int yearBuilt;
 	protected int numBed;
 	protected int numBath;
@@ -19,7 +19,7 @@ public class Property {
 	protected Boolean gym;
 	protected Boolean furnished;
 	
-	public Property(Boolean wifi, Boolean gym, Boolean furnished, int id, String location, Boolean vacancy, int price, int yearBuilt, int numBed, int numBath, Boolean washerAndDryer, Boolean pool, Boolean parking, Boolean pets, int vistaWS, int fpWS, int uscWS){
+	public Property(Boolean wifi, Boolean gym, Boolean furnished, int id, String location, Boolean vacancy, double price, int yearBuilt, int numBed, int numBath, Boolean washerAndDryer, Boolean pool, Boolean parking, Boolean pets, int vistaWS, int fpWS, int uscWS){
 		this.id = id;
 		this.wifi = wifi;
 		this.gym = gym;

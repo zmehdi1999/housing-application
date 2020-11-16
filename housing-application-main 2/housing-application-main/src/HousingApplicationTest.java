@@ -27,12 +27,12 @@ class HousingApplicationTest {
 	
 	@Test
 	void testLoginTenant() {
-		fail("Not yet implemented");
+		
 	}
 	
 	@Test
 	void testLoginOwner() {
-		fail("Not yet implemented");
+		
 	}
 	
 	@Test

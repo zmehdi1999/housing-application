@@ -25,7 +25,7 @@ public class DataWriter extends DataConstants {
 	}
     }
 	
-  	public static JSONObject getUsersJSON(User users) {
+  	private static JSONObject getUsersJSON(User users) {
 		JSONObject usersDetails = new JSONObject();
 		usersDetails.put(USER_FIRST_NAME, users.getFirstName());
 		usersDetails.put(USER_LAST_NAME, users.getLastName());
@@ -58,7 +58,7 @@ public class DataWriter extends DataConstants {
 	 }
      }
  			
-  	public static JSONObject getPropertiesJSON(Property properties)
+  	private static JSONObject getPropertiesJSON(Property properties)
   	{
   		JSONArray array = new JSONArray();
   		JSONObject propertyDetails = new JSONObject();

@@ -26,10 +26,21 @@ public class DataLoader extends DataConstants  {
 				String userName = (String)userJSON.get(USER_USER_NAME);
 				String email = (String)userJSON.get(USER_EMAIL);
 				String password = (String)userJSON.get(USER_PASSWORD);
-				int phoneNum = (int)userJSON.get(USER_PHONE_NUM);
-				Boolean registered = (Boolean)userJSON.get(USER_REGISTERED);
-				Boolean owner = (Boolean)userJSON.get(USER_OWNER);
-				int rating = (int)userJSON.get(USER_RATING);
+				//int phoneNum = (int)userJSON.get(USER_PHONE_NUM);
+				int phoneNum = (int)0;
+				//Boolean registered = (Boolean)userJSON.get(USER_REGISTERED);
+				Boolean registered;
+				if(userJSON.get(USER_REGISTERED).equals("true"))
+					registered = true;
+				else
+					registered = false;
+				//Boolean owner = (Boolean)userJSON.get(USER_OWNER);
+				Boolean owner;
+				if(userJSON.get(USER_OWNER).equals("true"))
+					owner = true;
+				else
+					owner = false;
+				int rating = (int)0;
 				
 				users.add(new User(firstName, lastName, userName, email, password, phoneNum, registered, owner, rating));
 			}
@@ -58,15 +69,36 @@ public class DataLoader extends DataConstants  {
 				int id = ((Long)propertyJSON.get(PROPERTY_ID)).intValue();
 				String location = (String)propertyJSON.get(PROPERTY_LOCATION);
 				Boolean vacancy = (Boolean)propertyJSON.get(PROPERTY_VACANCY);
-				int price = ((Long)propertyJSON.get(PROPERTY_PRICE)).intValue();
-				int yearBuilt = ((Long)propertyJSON.get(PROPERTY_YEARBUILT)).intValue();
+				double price = ((Long) propertyJSON.get(PROPERTY_PRICE)).doubleValue();
+				//int yearBuilt = ((Long)propertyJSON.get(PROPERTY_YEARBUILT)).intValue();
+				int yearBuilt = ((Long) propertyJSON.get(PROPERTY_YEARBUILT)).intValue();
 				int numBed = ((Long)propertyJSON.get(PROPERTY_NUMBED)).intValue();
 				int numBath = ((Long)propertyJSON.get(PROPERTY_NUMBATH)).intValue();
-				Boolean washerAndDryer = (Boolean)propertyJSON.get(PROPERTY_WASHERANDDRYER);
-				Boolean pool = (Boolean)propertyJSON.get(PROPERTY_POOL);
-				Boolean parking = (Boolean)propertyJSON.get(PROPERTY_PARKING);
-				Boolean pets = (Boolean)propertyJSON.get(PROPERTY_PETS);
-				int vistaWS = ((Long)propertyJSON.get(PROPERTY_VISTAWS)).intValue();
+				//Boolean washerAndDryer = (Boolean)propertyJSON.get(PROPERTY_WASHERANDDRYER);
+				Boolean washerAndDryer;
+				if(propertyJSON.get(PROPERTY_WASHERANDDRYER).equals("true"))
+					washerAndDryer = true;
+				else
+					washerAndDryer = false;
+				//Boolean pool = (Boolean)propertyJSON.get(PROPERTY_POOL);
+				Boolean pool;
+				if(propertyJSON.get(PROPERTY_POOL).equals("true"))
+					pool = true;
+				else
+					pool = false;
+				//Boolean parking = (Boolean)propertyJSON.get(PROPERTY_PARKING);
+				Boolean parking;
+				if(propertyJSON.get(PROPERTY_PARKING).equals("true"))
+					parking = true;
+				else
+					parking = false;
+				//Boolean pets = (Boolean)propertyJSON.get(PROPERTY_PETS);
+				Boolean pets;
+				if(propertyJSON.get(PROPERTY_PETS).equals("true"))
+					pets = true;
+				else
+					pets = false;
+				int vistaWS = ((Long) propertyJSON.get(PROPERTY_VISTAWS)).intValue();
 				int fpWS = ((Long)propertyJSON.get(PROPERTY_FPWS)).intValue();
 				int uscWS = ((Long)propertyJSON.get(PROPERTY_USCWS)).intValue();
 				properties.add(new Property(wifi, gym, furnished, id, location, vacancy, price, yearBuilt, numBed, numBath, washerAndDryer, pool, parking, pets, vistaWS, fpWS, uscWS));
