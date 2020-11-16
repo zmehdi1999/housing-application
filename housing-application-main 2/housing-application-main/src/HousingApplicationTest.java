@@ -43,7 +43,8 @@ class HousingApplicationTest {
 	
 	@Test
 	void testSearchProperties() {
-		fail("Not yet implemented");
+		propertyList.addAll(app.searchProperties(0, 99999, 1, 1, true, true, true));
+		
 	}
 	
 	@Test
