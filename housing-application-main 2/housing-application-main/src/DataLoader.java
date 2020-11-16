@@ -74,30 +74,10 @@ public class DataLoader extends DataConstants  {
 				int yearBuilt = ((Long) propertyJSON.get(PROPERTY_YEARBUILT)).intValue();
 				int numBed = ((Long)propertyJSON.get(PROPERTY_NUMBED)).intValue();
 				int numBath = ((Long)propertyJSON.get(PROPERTY_NUMBATH)).intValue();
-				//Boolean washerAndDryer = (Boolean)propertyJSON.get(PROPERTY_WASHERANDDRYER);
-				Boolean washerAndDryer;
-				if(propertyJSON.get(PROPERTY_WASHERANDDRYER).equals("true"))
-					washerAndDryer = true;
-				else
-					washerAndDryer = false;
-				//Boolean pool = (Boolean)propertyJSON.get(PROPERTY_POOL);
-				Boolean pool;
-				if(propertyJSON.get(PROPERTY_POOL).equals("true"))
-					pool = true;
-				else
-					pool = false;
-				//Boolean parking = (Boolean)propertyJSON.get(PROPERTY_PARKING);
-				Boolean parking;
-				if(propertyJSON.get(PROPERTY_PARKING).equals("true"))
-					parking = true;
-				else
-					parking = false;
-				//Boolean pets = (Boolean)propertyJSON.get(PROPERTY_PETS);
-				Boolean pets;
-				if(propertyJSON.get(PROPERTY_PETS).equals("true"))
-					pets = true;
-				else
-					pets = false;
+				Boolean washerAndDryer = (Boolean)propertyJSON.get(PROPERTY_WASHERANDDRYER);
+				Boolean pool = (Boolean)propertyJSON.get(PROPERTY_POOL);
+				Boolean parking = (Boolean)propertyJSON.get(PROPERTY_PARKING);
+				Boolean pets = (Boolean)propertyJSON.get(PROPERTY_PETS);
 				int vistaWS = ((Long) propertyJSON.get(PROPERTY_VISTAWS)).intValue();
 				int fpWS = ((Long)propertyJSON.get(PROPERTY_FPWS)).intValue();
 				int uscWS = ((Long)propertyJSON.get(PROPERTY_USCWS)).intValue();

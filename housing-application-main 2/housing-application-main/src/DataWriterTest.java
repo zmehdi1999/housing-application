@@ -66,6 +66,7 @@ class DataWriterTest {
 	@Test
 	void testSaveZeroProperties() {
 		propertyList = DataLoader.loadListings();
+		DataWriter.saveProperties();
 		assertEquals(0, propertyList.size());
 	}
 	
